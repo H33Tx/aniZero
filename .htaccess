@@ -1,1 +1,37 @@
+Options +FollowSymLinks
+RewriteEngine On
+ 
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+ 
+# Static Pages
+RewriteRule ^home/?$ ./?page=home
+RewriteRule ^login/?$ ./?page=login
+RewriteRule ^logout/?$ ./?page=logout
+RewriteRule ^changelog/?$ ./?page=changelog
+RewriteRule ^signup/?$ ./?page=signup
 
+# Fansub Groups
+RewriteRule ^group/(\d+)/(.+)/(\d+)/?$ ./?page=group&id=$1&offset=$3
+RewriteRule ^group/(\d+)/?(.+)?$ ./?page=group&id=$1
+
+# Watching
+RewriteRule ^animes/?(.*)/?$ ./?page=animes&pagination=$1
+RewriteRule ^anime/(\d+)/?$ ./?page=anime&id=$1
+RewriteRule ^watch/(\d+)/?([0-9])/?$ ./?page=watch&id=$1&ep=$2
+
+# Main Pages
+RewriteRule ^search/(\d+)?$ ./?page=search&for=$1
+RewriteRule ^newest/?(.+)/?$ ./?page=newest&pagination=$1
+
+# System
+RewriteRule ^system/schedule?(/)?$ ./?page=schedule
+RewriteRule ^system/admin/?$ ./?page=admin&setting=$1
+
+# User
+RewriteRule ^user/settings/?$ ./?page=settings&setting=$1
+RewriteRule ^user/follows?(/)?(.+)/?$ ./?page=follows&pagination=$1
+RewriteRule ^user/watchlist/(\d+)/?([0-9])?/?(.*)/?$ ./?page=watchlist&from=$1&pagination=$2&after=$3
+RewriteRule ^user/([0-9])/?(.*)/?$ ./?page=user&id=$1
+ 
+ErrorDocument 404 /index.php
