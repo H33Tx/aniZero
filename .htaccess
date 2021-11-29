@@ -11,10 +11,6 @@ RewriteRule ^logout/?$ ./?page=logout
 RewriteRule ^changelog/?$ ./?page=changelog
 RewriteRule ^signup/?$ ./?page=signup
 
-# Fansub Groups
-RewriteRule ^group/(\d+)/(.+)/(\d+)/?$ ./?page=group&id=$1&offset=$3
-RewriteRule ^group/(\d+)/?(.+)?$ ./?page=group&id=$1
-
 # Watching
 RewriteRule ^animes/?(.*)/?$ ./?page=animes&pagination=$1
 RewriteRule ^anime/(\d+)/?$ ./?page=anime&id=$1
@@ -22,7 +18,7 @@ RewriteRule ^watch/(\d+)/?([0-9])/?$ ./?page=watch&id=$1&ep=$2
 
 # Main Pages
 RewriteRule ^search/(\d+)?$ ./?page=search&for=$1
-RewriteRule ^newest/?(.+)/?$ ./?page=newest&pagination=$1
+RewriteRule ^newest/?(.*)/?$ ./?page=newest&pagination=$1
 
 # System
 RewriteRule ^system/schedule?(/)?$ ./?page=schedule
