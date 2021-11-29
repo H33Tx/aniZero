@@ -46,7 +46,7 @@ if(isset($_GET["after"])) {
 }
 
 // Number of results to show on each page.
-$num_results_on_page = 5;
+$num_results_on_page = 25;
 
 if ($stmt = $conn->prepare($rooting)) {
 	// Calculate the page to get the results we need from our table.
@@ -142,7 +142,7 @@ if($dreamingindigital2->num_rows > 0) {
                     <tr>
                         <th><?php echo "<a href='".$config["url"]."anime/$animeID'>$animeNAME</a>"; ?></th>
                         <th>Watching</th>
-                        <th><span class="nav-label-992"><a href="<?php echo $config["url"]; ?>anime/<?php echo $animeID; ?>/<?php echo $wRow["ep"]; ?>">Episode <?php echo $wRow["ep"]; ?></a></span></th>
+                        <th><span class="nav-label-992"><a href="<?php echo $config["url"]; ?>watch/<?php echo $animeID; ?>/<?php echo $wRow["ep"]; ?>">Episode <?php echo $wRow["ep"]; ?></a></span></th>
                         <th class="text-right"><?php echo $wRow["timestamp"]; ?></th>
                     </tr>
                     <?php

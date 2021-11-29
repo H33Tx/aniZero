@@ -9,8 +9,7 @@ if(isset($_POST["read-announce"])) {
 if(isset($_POST["edit-privacy"])) {
     $private = mysqli_real_escape_string($conn, $_POST["private"]);
     $watchlist = mysqli_real_escape_string($conn, $_POST["watchlist"]);
-    $antiheld = $conn->query("UPDATE `users` SET `watchlist`='$watchlist', `private`='$private'
-    if(!empty($watchlist)) { WHERE `id`='$uID'");
+    $antiheld = $conn->query("UPDATE `users` SET `watchlist`='$watchlist', `private`='$private' WHERE `id`='$uID'");
     header("Refresh:0");
     echo '<div class="container"><div id="announcement" class="alert alert-success alert-dismissible text-center" role="alert"><strong>Success:</strong> Your Privacy settings have changed!</div></div>';
 }

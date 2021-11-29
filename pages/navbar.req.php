@@ -46,9 +46,9 @@
                             <?php } if($uGroup=="Moderator" || $uGroup=="Administrator") { ?>
                             <a href="<?php echo $config["url"]; ?>system/mod"><i class="bi bi-wrench"></i>Moderation Panel</a>
                             <?php } ?>
-                            <a href="<?php echo $config["url"]; ?>user/watchlist"><i class="bi bi-bookmarks"></i> Watchlist</a>
+                            <a href="<?php echo $config["url"]; ?>user/watchlist/<?php echo $uID; ?>"><i class="bi bi-bookmarks"></i> Watchlist</a>
                             <a href="<?php echo $config["url"]; ?>user/follows"><i class="bi bi-list-task"></i> Follows</a>
-                            <a href="<?php echo $config["url"]; ?>user/profile/<?php echo $uID; echo "/"; echo $uName; ?>"><i class="bi bi-person-circle"></i> Profile</a>
+                            <a href="<?php echo $config["url"]; ?>user/<?php echo $uID; echo "/"; echo $uName; ?>"><i class="bi bi-person-circle"></i> Profile</a>
                             <a href="<?php echo $config["url"]; ?>user/settings"><i class="bi bi-pencil"></i> Edit Profile</a>
                             <a href="<?php echo $config["url"]; ?>logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
                             <?php } ?>

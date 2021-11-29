@@ -2,6 +2,21 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 29.11.2021</h3>
+    </div>
+    <div class="panel-body">
+        Fixed Bugs:
+        <li>Newest page erroring</li>
+        <li>Updating Privacy while editing account fixed</li>
+        Added:
+        <li>Barebones for viewing specific Anime</li>
+        <li>Preparations for indexing Anime</li>
+        I was sick the past two days... >_>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
         <h3 class="panel-title">Changelog of 18.11.2021</h3>
     </div>
     <div class="panel-body">
