@@ -2,15 +2,35 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 30.11.2021</h3>
+    </div>
+    <div class="panel-body">
+        Added:
+        <ul>
+            <li>Indexing Animes somewhat</li>
+            <li>Somewhat good layout when viewing specific Anime</li>
+            <li>Preparations for Admin Control-Panel</li>
+            <li>That's it for today...</li>
+        </ul>
+        Tomorrow Math exam... I didn't even study :^) send halp plez
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
         <h3 class="panel-title">Changelog of 29.11.2021</h3>
     </div>
     <div class="panel-body">
         Fixed Bugs:
-        <li>Newest page erroring</li>
-        <li>Updating Privacy while editing account fixed</li>
+        <ul>
+            <li>Newest page erroring</li>
+            <li>Updating Privacy while editing account fixed</li>
+        </ul>
         Added:
-        <li>Barebones for viewing specific Anime</li>
-        <li>Preparations for indexing Anime</li>
+        <ul>
+            <li>Barebones for viewing specific Anime</li>
+            <li>Preparations for indexing Anime</li>
+        </ul>
         I was sick the past two days... >_>
     </div>
 </div>
@@ -21,12 +41,16 @@
     </div>
     <div class="panel-body">
         Improved Account System
-        <li>View account of yourself and others</li>
-        <li>Edit account mostly (except avatar)</li>
+        <ul>
+            <li>View account of yourself and others</li>
+            <li>Edit account mostly (except avatar)</li>
+        </ul>
         Fixed several major bugs
-        <li>Video player height now right</li>
-        <li>Cookies not properly read (-> logged out everytime u close window)</li>
-        <li>Schedule System barebones</li>
+        <ul>
+            <li>Video player height now right</li>
+            <li>Cookies not properly read (-> logged out everytime u close window)</li>
+            <li>Schedule System barebones</li>
+        </ul>
     </div>
 </div>
 
@@ -37,20 +61,26 @@
     </div>
     <div class="panel-body">
         Full redesign & system.
-        <li>Using the RewriteEngine for better URLs</li>
-        <li>Using Bootstrap for Front-end</li>
-        <li>Made site completely resposive</li>
-        <li>Stealing code of MangaDex v1 :^)</li>
+        <ul>
+            <li>Using the RewriteEngine for better URLs</li>
+            <li>Using Bootstrap for Front-end</li>
+            <li>Made site completely resposive</li>
+            <li>Stealing code of MangaDex v1 :^)</li>
+        </ul>
         User Account System
-        <li>Added login & registration</li>
-        <li>Sessions stored in Cookies (expire after 30 days)</li>
-        <li>View watchlist of yourself and others</li>
-        <li>Light & dark theme added</li>
+        <ul>
+            <li>Added login & registration</li>
+            <li>Sessions stored in Cookies (expire after 30 days)</li>
+            <li>View watchlist of yourself and others</li>
+            <li>Light & dark theme added</li>
+        </ul>
         Preperations of Anime indexing
-        <li>Viewing an episode of an anime works</li>
-        <li>Added Streamtape to supported media players</li>
-        <li>Added episode indexing of below video player</li>
-        <li>Can bookmark anime (will overwrite old bookmark of episode)</li>
+        <ul>
+            <li>Viewing an episode of an anime works</li>
+            <li>Added Streamtape to supported media players</li>
+            <li>Added episode indexing of below video player</li>
+            <li>Can bookmark anime (will overwrite old bookmark of episode)</li>
+        </ul>
     </div>
 </div>
 

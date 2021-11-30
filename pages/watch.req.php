@@ -44,6 +44,7 @@ if(isset($aID)) {
     
 ?>
 
+<title>Watch <?= $aName ?> Episode <?= $reEP ?> | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><?php echo "<a href='".$config["url"]."anime/$aID'>".$aName."</a>: Episode ".$reEP; ?></h3>
@@ -92,28 +93,32 @@ if(isset($aID)) {
             <a href="<?php echo $config["url"]."anime/$aID"; ?>"><img src="<?php echo $config["url"]; ?>images/animes/<?php echo $aID.".".$aImage; ?>" width="100%"></a>
         </div>
         <div class="col-sm-9">
-            <h3><?php echo $aName; ?></h3>
+            <h3><a href="<?= $config["url"] ?>anime/<?= $aID ?>"><?php echo $aName; ?></a></h3>
         </div>
     </div>
 </div>
 
 <?php } else { ?>
+<title>Error: Episode not found | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Error</h3>
     </div>
     <div class="panel-body">
-        The Episode you are searching for doesn't exist (yet)...
+        <h3 class="text-center">The Episode you are searching for doesn't exist (yet)...</h3>
+        <center><img src="<?= $config["url"] ?>404.png" width="50%"></center>
     </div>
 </div>
 <?php };
 } else { ?>
+<title>Error: Anime not found | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Error</h3>
     </div>
     <div class="panel-body">
-        The Anime you are searching for doesn't exist...
+        <h3 class="text-center">The Anime you are searching for doesn't exist...</h3>
+        <center><img src="<?= $config["url"] ?>404.png" width="50%"></center>
     </div>
 </div>
 <?php } ?>

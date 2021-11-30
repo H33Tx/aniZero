@@ -5,7 +5,7 @@ $config["url"] = "https://anizero.h33t.moe/"; //ENDING WITH SLASH /
 //$config["logo"] = "logo.png";
 $config["desc"] = "AniZero is your place to stream Anime in high quality!";
 $config["email"] = "ninefreaks@yandex.com";
-$config["home"] = "home";
+$config["home"] = "animes";
 
 $slave["host"] = "localhost";
 $slave["user"] = "root";

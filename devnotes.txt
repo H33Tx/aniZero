@@ -1,0 +1,11 @@
+. : - aniZero Devnotes - : .
+
+[User Leves]
+- 1 = Admin
+- 2 = Mod
+- 3 = User
+
+[Anime Status]
+- 0 = Announced
+- 1 = Airing
+- 2 = Completed

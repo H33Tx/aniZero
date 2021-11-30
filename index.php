@@ -26,7 +26,7 @@ if($rPage=="logout") {
 
 $barNone = array("login","signup","changelog");
 $barMain = array("home","animes","newest","schedule","settings","user");
-$barAnime = array("anime");
+$barAnime = array("anime","watch");
 $barWatchlist = array("watchlist","follows");
 
 include("pages/header.req.php");
