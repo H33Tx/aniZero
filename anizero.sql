@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 30. Nov 2021 um 20:40
--- Server-Version: 5.7.36-0ubuntu0.18.04.1
--- PHP-Version: 7.2.34-26+ubuntu18.04.1+deb.sury.org+1
+-- Generation Time: Dec 01, 2021 at 08:21 PM
+-- Server version: 5.7.36-0ubuntu0.18.04.1
+-- PHP Version: 7.2.34-26+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,15 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `anizero`
+-- Database: `anizero`
 --
-CREATE DATABASE IF NOT EXISTS `anizero` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `anizero`;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `anime`
+-- Table structure for table `anime`
 --
 
 DROP TABLE IF EXISTS `anime`;
@@ -44,7 +42,20 @@ CREATE TABLE `anime` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `bookmarks`
+-- Table structure for table `anime_views`
+--
+
+DROP TABLE IF EXISTS `anime_views`;
+CREATE TABLE `anime_views` (
+  `id` int(11) NOT NULL,
+  `aid` int(10) NOT NULL,
+  `ip` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookmarks`
 --
 
 DROP TABLE IF EXISTS `bookmarks`;
@@ -60,7 +71,19 @@ CREATE TABLE `bookmarks` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `episodes`
+-- Table structure for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
+--
+
+DROP TABLE IF EXISTS `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`;
+CREATE TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES` (
+  `id` int(11) NOT NULL,
+  `ip` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `episodes`
 --
 
 DROP TABLE IF EXISTS `episodes`;
@@ -78,7 +101,7 @@ CREATE TABLE `episodes` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `settings`
+-- Table structure for table `settings`
 --
 
 DROP TABLE IF EXISTS `settings`;
@@ -92,7 +115,7 @@ CREATE TABLE `settings` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `tag_cloud`
+-- Table structure for table `tag_cloud`
 --
 
 DROP TABLE IF EXISTS `tag_cloud`;
@@ -104,7 +127,7 @@ CREATE TABLE `tag_cloud` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `tag_relation`
+-- Table structure for table `tag_relation`
 --
 
 DROP TABLE IF EXISTS `tag_relation`;
@@ -117,7 +140,7 @@ CREATE TABLE `tag_relation` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users`
+-- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -142,87 +165,109 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indizes der exportierten Tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indizes für die Tabelle `anime`
+-- Indexes for table `anime`
 --
 ALTER TABLE `anime`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `bookmarks`
+-- Indexes for table `anime_views`
+--
+ALTER TABLE `anime_views`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `episodes`
+-- Indexes for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
+--
+ALTER TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `episodes`
 --
 ALTER TABLE `episodes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `tag_cloud`
+-- Indexes for table `tag_cloud`
 --
 ALTER TABLE `tag_cloud`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `tag_relation`
+-- Indexes for table `tag_relation`
 --
 ALTER TABLE `tag_relation`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT für Tabelle `anime`
+-- AUTO_INCREMENT for table `anime`
 --
 ALTER TABLE `anime`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT für Tabelle `bookmarks`
+-- AUTO_INCREMENT for table `anime_views`
+--
+ALTER TABLE `anime_views`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT für Tabelle `episodes`
+-- AUTO_INCREMENT for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
+--
+ALTER TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `episodes`
 --
 ALTER TABLE `episodes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT für Tabelle `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT für Tabelle `tag_cloud`
+-- AUTO_INCREMENT for table `tag_cloud`
 --
 ALTER TABLE `tag_cloud`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT für Tabelle `tag_relation`
+-- AUTO_INCREMENT for table `tag_relation`
 --
 ALTER TABLE `tag_relation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT für Tabelle `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
