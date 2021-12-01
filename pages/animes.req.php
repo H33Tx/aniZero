@@ -31,6 +31,7 @@ if ($stmt = $conn->prepare('SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?'))
                 <thead>
                     <tr>
                         <th>Anime</th>
+                        <th width="10%" class="text-center">Views</th>
                         <th width="10%" class="text-center">Rating</th>
                         <th width="10%" class="text-center">Episodes</th>
                         <th width="10%" class="text-right">Status</th>
@@ -43,10 +44,13 @@ if ($stmt = $conn->prepare('SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?'))
                         while($row = $result->fetch_assoc()) {
                             $aidd = $row["id"];
                             $episodes = $conn->query("SELECT COUNT(*) AS total FROM `episodes` WHERE `aid`='$aidd'");
+                            $total_views = $conn->query("SELECT COUNT(*) AS total FROM `anime_views` WHERE `aid`='$aidd'");
                             $episodes = mysqli_fetch_assoc($episodes);
+                            $total_views = mysqli_fetch_assoc($total_views);
                     ?>
                     <tr>
                         <td><a href="<?= $config["url"] ?>watch/<?= $row["id"] ?>/1"><?= $row["name"] ?></a></td>
+                        <td class="text-center"><?= $total_views["total"] ?></td>
                         <td class="text-center">soon™</td>
                         <td class="text-center"><?= $episodes["total"] ?></td>
                         <td class="text-right"><?php if($row["status"]=="0") { echo "Announced"; } elseif($row["status"]=="1") { echo "Airing"; } else { echo "Completed"; } ?></td>

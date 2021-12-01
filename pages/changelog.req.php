@@ -2,6 +2,34 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 01.12.2021</h3>
+    </div>
+    <div class="panel-body">
+        Added:
+        <ul>
+            <li>Viewcount System</li>
+            <li>Collect clean/hashed IPs (default is hashed)</li>
+            <li>Bookmarking system (see below)</li>
+        </ul>
+        Bookmarking System:
+        <ul>
+            <li>Adding Bookmarks</li>
+            <li>Removing Bookmarks</li>
+            <li>Updating Bookmarks</li>
+        </ul>
+        Fixed:
+        <ul>
+            <li>Bookmarks not properly sorting on watchlist page</li>
+        </ul>
+        Bugs to fix:
+        <ul>
+            <li>User error when no bookmark entries</li>
+        </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
         <h3 class="panel-title">Changelog of 30.11.2021</h3>
     </div>
     <div class="panel-body">

@@ -7,8 +7,8 @@
         <ul>
             <li><a href="<?php echo $config["url"]."user/watchlist/$reID/$pagination/"; ?>planned">Planned</a></li>
             <li><a href="<?php echo $config["url"]."user/watchlist/$reID/$pagination/"; ?>watching">Watching</a></li>
-            <li><a href="<?php echo $config["url"]."user/watchlist/$reID/$pagination/"; ?>paused">Paused</a></li>
             <li><a href="<?php echo $config["url"]."user/watchlist/$reID/$pagination/"; ?>completed">Completed</a></li>
+            <li><a href="<?php echo $config["url"]."user/watchlist/$reID/$pagination/"; ?>paused">Paused</a></li>
             <li><a href="<?php echo $config["url"]."user/watchlist/$reID/$pagination/"; ?>dropped">Dropped</a></li>
         </ul>
         or <a href="<?php echo $config["url"]."user/watchlist/$reID/"; ?>">Reset Filter</a>?

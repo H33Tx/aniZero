@@ -14,8 +14,8 @@ if(!isset($_GET["page"])) {
 }
 
 require("config.inc.php");
-require("core/conn.php");
-require("core/daemon.php");
+require_once("core/conn.php");
+require_once("core/daemon.php");
 
 if($rPage=="logout") {
     session_destroy();
@@ -24,8 +24,19 @@ if($rPage=="logout") {
     header("location: /home");
 }
 
+// Collect unhashed IPs? Recommended setting: false
+$user_ip = $_SERVER['REMOTE_ADDR'];
+if($config["cleanip"]=="true") {
+    $check_user = $conn->query("SELECT `ip` FROM `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES` WHERE `ip`='$user_ip'");
+    if(mysqli_num_rows($check_user)>=1) {
+
+    } else {
+        $insertuser = $conn->query("INSERT INTO `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`(`ip`) VALUES('$user_ip')");
+    }
+}
+
 $barNone = array("login","signup","changelog");
-$barMain = array("home","animes","newest","schedule","settings","user");
+$barMain = array("animes","newest","schedule","settings","user");
 $barAnime = array("anime","watch");
 $barWatchlist = array("watchlist","follows");
 
@@ -80,10 +91,14 @@ include("pages/header.req.php");
                 
                 if(in_array($rPage, $barMain)) {
                     include("sides/main.bar.php");
-                } elseif(in_array($rPage, $barAnime)) {
+                } elseif($rPage=="anime") {
                     include("sides/anime.bar.php");
+                } elseif($rPage=="watch") {
+                    include("sides/bookmark.bar.php");
                 } elseif(in_array($rPage, $barWatchlist)) {
                     include("sides/watchlist.bar.php");
+                } elseif($rPage=="home") {
+                    include("sides/home.bar.php");
                 }
                 
                 ?>

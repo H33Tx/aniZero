@@ -1,11 +1,18 @@
 . : - aniZero Devnotes - : .
 
-[User Leves]
+[ User Leves ]
 - 1 = Admin
 - 2 = Mod
 - 3 = User
 
-[Anime Status]
+[ Anime Status ]
 - 0 = Announced
 - 1 = Airing
 - 2 = Completed
+
+[ Bookmark Status ]
+- 0 = Planned
+- 1 = Watching
+- 2 = Completed
+- 3 = Paused
+- 4 = Dropped

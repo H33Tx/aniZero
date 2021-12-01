@@ -1,5 +1,35 @@
 <?php
 
+// Remove Bookmark
+if(isset($_POST["remove_bookmark"])) {
+    $anime = mysqli_real_escape_string($conn, $_POST["anime"]);
+    $user = mysqli_real_escape_string($conn, $_POST["user"]);
+    
+    $conn->query("DELETE FROM `bookmarks` WHERE `uid`='$user' AND `aid`='$anime'");
+}
+
+// Update Bookmark
+if(isset($_POST["update_bookmark"])) {
+    $anime = mysqli_real_escape_string($conn, $_POST["anime"]);
+    $episode = mysqli_real_escape_string($conn, $_POST["episode"]);
+    $user = mysqli_real_escape_string($conn, $_POST["user"]);
+    $status = mysqli_real_escape_string($conn, $_POST["status"]);
+    
+    $conn->query("UPDATE `bookmarks` SET `status`='$status', `ep`='$episode' WHERE `uid`='$user' AND `aid`='$anime' LIMIT 1");
+    header("location: ".$config["url"]."watch/$anime/$episode");
+}
+
+// Bookmark Anime
+if(isset($_POST["add_bookmark"])) {
+    $anime = mysqli_real_escape_string($conn, $_POST["anime"]);
+    $episode = mysqli_real_escape_string($conn, $_POST["episode"]);
+    $user = mysqli_real_escape_string($conn, $_POST["user"]);
+    $status = mysqli_real_escape_string($conn, $_POST["status"]);
+    
+    $conn->query("INSERT INTO `bookmarks`(`uid`, `aid`, `ep`, `status`) VALUES('$user','$anime','$episode','$status')");
+    header("location:".$config["url"]."watch/$anime/$episode");
+}
+
 // Dismiss Announcement
 if(isset($_POST["read-announce"])) {
     $antiheld = $conn->query("UPDATE `users` SET `read_announce`='1' WHERE `id`='$uID'");

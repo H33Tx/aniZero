@@ -28,19 +28,10 @@ if(isset($_SESSION["username"])) {
             $ableToDissmis = "1";
             if($uGroup==1) {
                 $uGroup = "Administrator";
-                $canAdd = true;
-                $canEdit = true;
-                $canDelete = true;
             } elseif($uGroup==2) {
                 $uGroup = "Moderator";
-                $canAdd = false;
-                $canEdit = true;
-                $canDelete = false;
             } else {
                 $uGroup = "Member";
-                $canAdd = false;
-                $canEdit = false;
-                $canDelete = false;
             }
             if(!empty($row["website"])) {
                 $uWebsite = $row["website"];

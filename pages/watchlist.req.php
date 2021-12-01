@@ -9,25 +9,25 @@ if(isset($_GET["after"])) {
 
 //PAGINATION PREPS STARTING
 if($sStatus=="planned") {
-    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`=0";
-    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=0 LIMIT ?,?";
-    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=0";
+    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`='0'";
+    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='0' LIMIT ?,?";
+    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='0'";
 } elseif($sStatus=="watching") {
-    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`=1";
-    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=1 LIMIT ?,?";
-    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=1";
-} elseif($sStatus=="paused") {
-    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`=2";
-    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=2 LIMIT ?,?";
-    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=2";
+    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`='1'";
+    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='1' LIMIT ?,?";
+    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='1'";
 } elseif($sStatus=="completed") {
-    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`=3";
-    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=3 LIMIT ?,?";
-    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=3";
+    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`='2'";
+    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='2' LIMIT ?,?";
+    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='2'";
+} elseif($sStatus=="paused") {
+    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`='3'";
+    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='3' LIMIT ?,?";
+    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='3'";
 } elseif($sStatus=="dropped") {
-    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`=4";
-    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=4 LIMIT ?,?";
-    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`=4";
+    $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID' AND `status`='4'";
+    $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='4' LIMIT ?,?";
+    $dreamer = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' AND `status`='4'";
 } else {
     $reality = "SELECT COUNT(*) FROM `bookmarks` WHERE `uid`='$reID'";
     $rooting = "SELECT * FROM `bookmarks` WHERE `uid`='$reID' LIMIT ?,?";
@@ -85,7 +85,7 @@ if($dreamingindigital2->num_rows > 0) {
         if ($dreamingindigital2->num_rows > 0) {
                  
                  if (ceil($total_pages / $num_results_on_page) > 0): ?>
-        <center>
+        <!--<center>
             <ul class="pagination">
                 <?php if ($pagination > 1): ?>
                 <li class="prev"><a href="<?php echo $config["url"]; echo "user/watchlist/$reID/"; echo $pagination-1; echo "/".$whatif; ?>"><i class="bi bi-chevron-left"></i></a></li>
@@ -114,7 +114,7 @@ if($dreamingindigital2->num_rows > 0) {
                 <?php endif; ?>
             </ul>
         </center>
-        <?php endif; ?>
+        <?php endif; ?>-->
 
         <div class="table-responsive">
             <table class="table table-striped table-hover table-condensed">
@@ -138,10 +138,21 @@ if($dreamingindigital2->num_rows > 0) {
                     } else {
                         $animeNAME = "Uh oh, Anime doesn't exist?";
                     }
+                    if($wRow["status"]=="0") {
+                        $ssStatus = "Planned";
+                    } elseif($wRow["status"]=="1") {
+                        $ssStatus = "Watching";
+                    } elseif($wRow["status"]=="2") {
+                        $ssStatus = "Completed";
+                    } elseif($wRow["status"]=="3") {
+                        $ssStatus = "Paused";
+                    } else {
+                        $ssStatus = "Dropped";
+                    }
                     ?>
                     <tr>
                         <th><?php echo "<a href='".$config["url"]."anime/$animeID'>$animeNAME</a>"; ?></th>
-                        <th>Watching</th>
+                        <th><?= $ssStatus ?></th>
                         <th><span class="nav-label-992"><a href="<?php echo $config["url"]; ?>watch/<?php echo $animeID; ?>/<?php echo $wRow["ep"]; ?>">Episode <?php echo $wRow["ep"]; ?></a></span></th>
                         <th class="text-right"><?php echo $wRow["timestamp"]; ?></th>
                     </tr>

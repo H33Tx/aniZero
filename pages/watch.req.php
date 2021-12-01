@@ -41,6 +41,18 @@ if(isset($aID)) {
     }
     
     if(!empty($exEP)) {
+
+        // Anime exists, episode too, add Pageview +1
+
+        $user_ip_hash = md5($user_ip);
+
+        $check_ip = $conn->query("SELECT `ip` FROM `anime_views` WHERE `aid`='$aID' AND `ip`='$user_ip_hash'");
+        if(mysqli_num_rows($check_ip)>=1) {
+
+        } else {
+            $insertview = $conn->query("INSERT INTO `anime_views`(`aid`, `ip`) VALUES('$aID','$user_ip_hash')");
+            //$updateview = mysql_query("UPDATE `anime_views` SET totalvisit = totalvisit+1 where page=''");
+        }
     
 ?>
 
