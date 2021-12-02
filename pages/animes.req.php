@@ -49,7 +49,7 @@ if ($stmt = $conn->prepare('SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?'))
                             $total_views = mysqli_fetch_assoc($total_views);
                     ?>
                     <tr>
-                        <td><a href="<?= $config["url"] ?>watch/<?= $row["id"] ?>/1"><?= $row["name"] ?></a></td>
+                        <td><a href="<?= $config["url"] ?>anime/<?= $row["id"] ?>"><?= $row["name"] ?></a></td>
                         <td class="text-center"><?= $total_views["total"] ?></td>
                         <td class="text-center">soon™</td>
                         <td class="text-center"><?= $episodes["total"] ?></td>

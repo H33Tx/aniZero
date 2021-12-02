@@ -38,6 +38,7 @@ if($config["cleanip"]=="true") {
 $barNone = array("login","signup","changelog");
 $barMain = array("animes","newest","schedule","settings","user");
 $barAnime = array("anime","watch");
+$barAdmin = array("admin");
 $barWatchlist = array("watchlist","follows");
 
 include("pages/header.req.php");
@@ -97,6 +98,8 @@ include("pages/header.req.php");
                     include("sides/bookmark.bar.php");
                 } elseif(in_array($rPage, $barWatchlist)) {
                     include("sides/watchlist.bar.php");
+                } elseif(in_array($rPage, $barAdmin)) {
+                    include("sides/admin.bar.php");
                 } elseif($rPage=="home") {
                     include("sides/home.bar.php");
                 }

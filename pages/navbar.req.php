@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" id="home_button" href="/"><?php echo $config["name"]; ?></a>
+            <a class="navbar-brand" id="home_button" href="<?= $config["url"] ?>"><?php if(!empty($config["logo"])) { ?><img src="<?= $config["url"] ?>images/system/<?= $config["logo"] ?>" height="130%" alt="<?= $config["name"] ?>'s Logo"><?php } else { ?><?= $config["name"] ?><?php } ?></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" id="nav_links">

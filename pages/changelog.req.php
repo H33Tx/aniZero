@@ -1,6 +1,25 @@
 <title>Changelog | <?php echo $config["name"]; ?></title>
 
-<div class="panel panel-default">
+<div class="panel panel-default" id="02-12-2021">
+    <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 02.12.2021</h3>
+    </div>
+    <div class="panel-body">
+        Added:
+        <ul>
+            <li>Finally somewhat of a homepage</li>
+            <li>Page with newest Animes and pagination</li>
+            <li>Preperations for Admin panel</li>
+            <li>Use Logo in Navbar instead of plain text (can use text too but not both at the same time)</li>
+        </ul>
+        Fixed:
+        <ul>
+            <li>Video-player having wrong aspect-ratio (w3schools rocks!)</li>
+        </ul>
+    </div>
+</div>
+
+<div class="panel panel-default" id="01-12-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 01.12.2021</h3>
     </div>
@@ -28,7 +47,7 @@
     </div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default" id="30-11-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 30.11.2021</h3>
     </div>
@@ -44,7 +63,7 @@
     </div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default" id="29-11-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 29.11.2021</h3>
     </div>
@@ -63,7 +82,7 @@
     </div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default" id="18-11-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 18.11.2021</h3>
     </div>
@@ -82,8 +101,7 @@
     </div>
 </div>
 
-
-<div class="panel panel-default">
+<div class="panel panel-default" id="17-11-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 17.11.2021</h3>
     </div>
@@ -112,8 +130,7 @@
     </div>
 </div>
 
-
-<div class="panel panel-default">
+<div class="panel panel-default" id="29-10-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 29.10.2021</h3>
     </div>
@@ -122,8 +139,7 @@
     </div>
 </div>
 
-
-<div class="panel panel-default">
+<div class="panel panel-default" id="27-10-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 27.10.2021</h3>
     </div>
@@ -132,7 +148,7 @@
     </div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default" id="26-10-2021">
     <div class="panel-heading">
         <h3 class="panel-title">Changelog of 26.10.2021</h3>
     </div>

@@ -26,11 +26,11 @@ $anime = mysqli_fetch_assoc($anime);
             <div class="col-sm-9">
                 <table class="table table-condensed">
                     <tr>
-                        <td style="border-top: 0;"><?= $anime["description"] ?></td>
+                        <?= $anime["description"] ?>
                     </tr>
                     <tr>
                         <th width="50%">Rating:</th>
-                        <td><?= $anime["rating"] ?></td>
+                        <td>Soon™</td>
                     </tr>
                     <tr>
                         <th>Your Rating:</th>

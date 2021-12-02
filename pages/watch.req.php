@@ -57,22 +57,36 @@ if(isset($aID)) {
 ?>
 
 <title>Watch <?= $aName ?> Episode <?= $reEP ?> | <?= $config["name"] ?></title>
+<style>
+    .vid-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 56.25%;
+        /* 16:9 Aspect Ratio */
+    }
+
+
+    .media-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+</style>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><?php echo "<a href='".$config["url"]."anime/$aID'>".$aName."</a>: Episode ".$reEP; ?></h3>
     </div>
     <div class="panel-body">
-        <?php
-        
-        if($exHost=="mp4upload") { ?>
-        <iframe id="media-video" scrolling="no" controls loop src="<?php echo $exPlayer; ?>" style="height:60vh;width:100%;" allowfullscreen frameborder="0"></iframe>
-        <?php } elseif($exHost=="youtube") { ?>
-        <iframe id="media-video" scrolling="no" controls loop src="<?php echo $exPlayer; ?>" style="height:60vh;width:100%;" allowfullscreen frameborder="0"></iframe>
-        <?php } elseif($exHost=="streamtape") { ?>
-        <iframe src="<?php echo $exPlayer; ?>" style="height:60vh;width:100%;" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
-        <?php }
-
-        ?>
+        <div class="vid-container">
+            <iframe class="media-video" scrolling="no" controls allowtransparency allow="autoplay" scrolling="no" loop src="<?php echo $exPlayer; ?>" allowfullscreen frameborder="0"></iframe>
+        </div>
     </div>
 </div>
 

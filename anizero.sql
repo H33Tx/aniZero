@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 01, 2021 at 08:21 PM
+-- Generation Time: Dec 02, 2021 at 02:02 AM
 -- Server version: 5.7.36-0ubuntu0.18.04.1
 -- PHP Version: 7.2.34-26+ubuntu18.04.1+deb.sury.org+1
 
@@ -32,7 +32,6 @@ CREATE TABLE `anime` (
   `name` varchar(100) NOT NULL,
   `alternates` varchar(250) DEFAULT NULL,
   `image` varchar(100) NOT NULL DEFAULT 'soon.png',
-  `rating` int(2) DEFAULT NULL,
   `views` int(11) NOT NULL DEFAULT '1',
   `description` varchar(1000) DEFAULT NULL,
   `status` int(1) NOT NULL DEFAULT '1',
@@ -71,6 +70,37 @@ CREATE TABLE `bookmarks` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments_anime`
+--
+
+DROP TABLE IF EXISTS `comments_anime`;
+CREATE TABLE `comments_anime` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `aid` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments_episode`
+--
+
+DROP TABLE IF EXISTS `comments_episode`;
+CREATE TABLE `comments_episode` (
+  `id` int(11) NOT NULL,
+  `aid` int(11) NOT NULL,
+  `ep` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 --
 
@@ -96,6 +126,19 @@ CREATE TABLE `episodes` (
   `released` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `source` varchar(250) NOT NULL,
   `host` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratings`
+--
+
+DROP TABLE IF EXISTS `ratings`;
+CREATE TABLE `ratings` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `aid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -187,6 +230,18 @@ ALTER TABLE `bookmarks`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `comments_anime`
+--
+ALTER TABLE `comments_anime`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments_episode`
+--
+ALTER TABLE `comments_episode`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 --
 ALTER TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
@@ -196,6 +251,12 @@ ALTER TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 -- Indexes for table `episodes`
 --
 ALTER TABLE `episodes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ratings`
+--
+ALTER TABLE `ratings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -242,6 +303,16 @@ ALTER TABLE `anime_views`
 ALTER TABLE `bookmarks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `comments_anime`
+--
+ALTER TABLE `comments_anime`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `comments_episode`
+--
+ALTER TABLE `comments_episode`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 --
 ALTER TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
@@ -250,6 +321,11 @@ ALTER TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 -- AUTO_INCREMENT for table `episodes`
 --
 ALTER TABLE `episodes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `ratings`
+--
+ALTER TABLE `ratings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `settings`
