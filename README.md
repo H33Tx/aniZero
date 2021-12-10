@@ -13,7 +13,7 @@ For changelog, please visit https://anizero.h33t.moe/changelog or the changelog.
 
 Please do not remove the footer to credit the hard work of the people who made this software.
 
-Coding by Saintly2k -> https://github.com/saintly2k
+Coding by Saintly2k -> https://github.com/saintly2k & Kleineick -> https://github.com/fuhrer-kleineick
 
 Styling by Bootstrap 3.4 -> https://getbootstrap.com
 
