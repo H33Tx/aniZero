@@ -16,3 +16,17 @@
 - 2 = Completed
 - 3 = Paused
 - 4 = Dropped
+
+[ Episode Types ]
+- 0 = Dub
+- 1 = Sub
+- 2 = Raw
+
+[ Schedule ]
+- 1 = Monday
+- 2 = Tuesday
+- 3 = Wednesday
+- 4 = Thursday
+- 5 = Friday
+- 6 = Saturday
+- 7 = Sunday

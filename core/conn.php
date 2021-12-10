@@ -6,6 +6,9 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$config = $conn->query("SELECT * FROM `settings` WHERE `id`='1' LIMIT 1");
+$config = mysqli_fetch_assoc($config);
+
 $fullUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=== 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
 if(!empty($_COOKIE["loggedincookie"])) {
@@ -68,7 +71,7 @@ if(isset($_SESSION["username"])) {
 } else {
     $uID = "0";
     $uName = "Guest";
-    $uTheme = "1";
+    $uTheme = $config["theme"];
     $ableToDissmis = "0";
     $ignoreAnnounce = "0";
     $uGroup = "Guest";

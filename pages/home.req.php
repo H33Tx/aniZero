@@ -36,7 +36,7 @@
                         <td>
                             <h4><a href="<?= $config["url"] ?>watch/<?= $row["aid"] ?>/<?= $row["episode"] ?>"><?= $animu["name"] ?></a></h4>
                             <?= $row["title"] ?><br>
-                            Episode <?= $row["episode"] ?> - <?php if($row["sub"]=="1") { echo "Sub"; } else { echo "Dub"; } ?>
+                            Episode <?= $row["episode"] ?> - <?php if($row["sub"]=="1") { echo "Sub"; } elseif($row["sub"]=="0") { echo "Dub"; } else { echo "Raw"; } ?>
                         </td>
                         <td class="text-right"><?= $row["released"] ?></td>
                     </tr>

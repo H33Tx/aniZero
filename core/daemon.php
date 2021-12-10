@@ -1,5 +1,92 @@
 <?php
 
+// Delete Schedule Entry
+if(isset($_POST["delete_schedule"])) {
+    $schedule = mysqli_real_escape_string($conn, $_POST["schedule_id"]);
+    
+    $conn->query("DELETE FROM `schedule` WHERE `id`='$schedule' LIMIT 1");
+        
+    header("location: ".$config["url"]."system/admin/schedule");
+}
+
+// Edit Schedule Entry
+if(isset($_POST["edit_schedule"])) {
+    $schedule = mysqli_real_escape_string($conn, $_POST["schedule_id"]);
+    $anime = mysqli_real_escape_string($conn, $_POST["schedule_anime"]);
+    $day = mysqli_real_escape_string($conn, $_POST["schedule_day"]);
+    $time = mysqli_real_escape_string($conn, $_POST["schedule_time"]);
+    
+    $conn->query("UPDATE `schedule` SET `aid`='$anime', `day`='$day', `time`='$time' WHERE `id`='$schedule'");
+        
+    header("location: ".$config["url"]."system/admin/schedule");
+}
+
+// Add Anime to Schedule
+if(isset($_POST["add_schedule"])) {
+    $anime = mysqli_real_escape_string($conn, $_POST["anime_id"]);
+    $day = mysqli_real_escape_string($conn, $_POST["anime_day"]);
+    $time = mysqli_real_escape_string($conn, $_POST["anime_time"]);
+    
+    $conn->query("INSERT INTO `schedule`(`aid`, `day`, `time`) VALUES('$anime','$day','$time')");
+    
+    header("location: ".$config["url"]."system/admin/schedule");
+}
+
+// Save Admin Advanced Settings
+if(isset($_POST["edit_settings_advanced"])) {
+    $store_cleanip = mysqli_real_escape_string($conn, $_POST["store_cleanip"]);
+    
+    $conn->query("UPDATE `settings` SET `cleanip`='$store_cleanip' WHERE `id`='1'");
+    header("location: ".$config["url"]."system/admin/general_settings");
+}
+
+// Save Admin Contact Settings
+if(isset($_POST["edit_settings_contact"])) {
+    $webmaster_email = mysqli_real_escape_string($conn, $_POST["webmaster_email"]);
+    
+    $conn->query("UPDATE `settings` SET `email`='$webmaster_email' WHERE `id`='1'");
+    header("location: ".$config["url"]."system/admin/general_settings");
+}
+
+// Save Admin Registrations Settings
+if(isset($_POST["edit_settings_registration"])) {
+    $registration_enabled = mysqli_real_escape_string($conn, $_POST["registration_enabled"]);
+    
+    $conn->query("UPDATE `settings` SET `registration`='$registration_enabled' WHERE `id`='1'");
+    header("location: ".$config["url"]."system/admin/general_settings");
+}
+
+// Save Admin Layout Settings
+if(isset($_POST["edit_settings_layout"])) {
+    $site_theme = mysqli_real_escape_string($conn, $_POST["site_theme"]);
+    
+    $conn->query("UPDATE `settings` SET `theme`='$site_theme' WHERE `id`='1'");
+    header("location: ".$config["url"]."system/admin/general_settings");
+}
+
+// Save Admin General Settings
+if(isset($_POST["edit_settings_default"])) {
+    $site_name = mysqli_real_escape_string($conn, $_POST["site_name"]);
+    $site_url = mysqli_real_escape_string($conn, $_POST["site_url"]);
+    $site_descr = mysqli_real_escape_string($conn, $_POST["site_descr"]);
+    $site_logo = mysqli_real_escape_string($conn, $_POST["site_logo"]);
+    
+    $conn->query("UPDATE `settings` SET `name`='$site_name', `url`='$site_url', `descr`='$site_descr', `logo`='$site_logo' WHERE `id`='1'");
+    header("location: ".$config["url"]."system/admin/general_settings");
+}
+
+// Add Anime
+if(isset($_POST["add_anime"])) {
+    $image = mysqli_real_escape_string($conn, $_POST["anime_image"]);
+    $name = mysqli_real_escape_string($conn, $_POST["anime_name"]);
+    $alternates = mysqli_real_escape_string($conn, $_POST["anime_alternates"]);
+    $status = mysqli_real_escape_string($conn, $_POST["anime_status"]);
+    $description = mysqli_real_escape_string($conn, $_POST["anime_description"]);
+    
+    $conn->query("INSERT INTO `anime`(`name`, `alternates`, `image`, `description`, `status`) VALUES ('$name','$alternates','$image','$description','$status')");
+    header("location: ".$config["url"]."system/admin/browse_animes/1");
+}
+
 // Remove Bookmark
 if(isset($_POST["remove_bookmark"])) {
     $anime = mysqli_real_escape_string($conn, $_POST["anime"]);

@@ -1,8 +1,31 @@
 <title>Changelog | <?php echo $config["name"]; ?></title>
 
+<div class="panel panel-default" id="10-12-2021">
+    <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 10.12.2021 <small>v0.1.9</small></h3>
+    </div>
+    <div class="panel-body">
+        Finally, the new update nobody waited for!<br>
+        Added:
+        <ul>
+            <li>Admin Panel General Settings</li>
+            <li>Admin Panel Adding Anime</li>
+            <li>Admin Panel Adding/Editing Schedule</li>
+            <li>Viewing Schedule Page works</li>
+        </ul>
+        Fixed:
+        <ul>
+            <li>Some Layout in "general_settings.adm.php"</li>
+        </ul>
+        I started counting Version because I plan on making some kind of autoupdater... current version if 0.1.9 (don't ask me how the system works!!)<br>
+        I'm currently working on the Admin CP (it's by faaar not done >_>).<br><br>
+        Cya in the next update when I finished all my exams (and eventually passed some of them by luck) :3
+    </div>
+</div>
+
 <div class="panel panel-default" id="02-12-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 02.12.2021</h3>
+        <h3 class="panel-title">Changelog of 02.12.2021 <small>v0.1.8</small></h3>
     </div>
     <div class="panel-body">
         Added:
@@ -21,7 +44,7 @@
 
 <div class="panel panel-default" id="01-12-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 01.12.2021</h3>
+        <h3 class="panel-title">Changelog of 01.12.2021 <small>v0.1.7</small></h3>
     </div>
     <div class="panel-body">
         Added:
@@ -49,7 +72,7 @@
 
 <div class="panel panel-default" id="30-11-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 30.11.2021</h3>
+        <h3 class="panel-title">Changelog of 30.11.2021 <small>v0.1.6</small></h3>
     </div>
     <div class="panel-body">
         Added:
@@ -65,7 +88,7 @@
 
 <div class="panel panel-default" id="29-11-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 29.11.2021</h3>
+        <h3 class="panel-title">Changelog of 29.11.2021 <small>v0.1.5</small></h3>
     </div>
     <div class="panel-body">
         Fixed Bugs:
@@ -84,7 +107,7 @@
 
 <div class="panel panel-default" id="18-11-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 18.11.2021</h3>
+        <h3 class="panel-title">Changelog of 18.11.2021 <small>v0.1.4</small></h3>
     </div>
     <div class="panel-body">
         Improved Account System
@@ -103,7 +126,7 @@
 
 <div class="panel panel-default" id="17-11-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 17.11.2021</h3>
+        <h3 class="panel-title">Changelog of 17.11.2021 <small>v0.1.3</small></h3>
     </div>
     <div class="panel-body">
         Full redesign & system.
@@ -132,7 +155,7 @@
 
 <div class="panel panel-default" id="29-10-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 29.10.2021</h3>
+        <h3 class="panel-title">Changelog of 29.10.2021 <small>v0.1.2</small></h3>
     </div>
     <div class="panel-body">
         Video suport for mp4upload & YouTube.
@@ -141,7 +164,7 @@
 
 <div class="panel panel-default" id="27-10-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 27.10.2021</h3>
+        <h3 class="panel-title">Changelog of 27.10.2021 <small>v0.1.1</small></h3>
     </div>
     <div class="panel-body">
         Barebones for front-end & account-system, early schema of Database.
@@ -150,7 +173,7 @@
 
 <div class="panel panel-default" id="26-10-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 26.10.2021</h3>
+        <h3 class="panel-title">Changelog of 26.10.2021 <small>v0.1.0</small></h3>
     </div>
     <div class="panel-body">
         $aintly wanted to create his own Anime CMS for his Fansub group, so here we are now... in containers :)
