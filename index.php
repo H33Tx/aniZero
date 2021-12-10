@@ -39,6 +39,7 @@ $barNone = array("login","signup","changelog");
 $barMain = array("animes","newest","schedule","settings","user");
 $barAnime = array("anime","watch");
 $barAdmin = array("admin");
+$barMod = array("mod");
 $barWatchlist = array("watchlist","follows");
 
 include("pages/header.req.php");

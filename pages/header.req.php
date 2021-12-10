@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="author" content="Saintly2k">
-    <meta name="description" content="<?php echo $config["desc"]; ?>">
+    <meta name="description" content="<?= $config["descr"] ?>">
     <meta name="keywords" content="anime, stream, stream anime, free anime, anime free, 9anime, anizero, ani zero, english anime, anime sub, anime dub, animesub, animedub, watch anime free, stream anime free">
 
     <meta property="og:site_name" content="<?php echo $config["name"]; ?>">

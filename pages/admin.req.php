@@ -3,7 +3,7 @@
 if(!isset($_GET["action"])) {
     $admin_action = "default";
 } else {
-    $admin_action = $_GET[action];
+    $admin_action = $_GET["action"];
 }
 
 ?>

@@ -1,4 +1,5 @@
 <title>Register | <?php echo $config["name"]; ?></title>
+<?php if($config["registration"]=="1") { ?>
 <?php if(!isset($_SESSION["username"])) { ?>
 <div style="margin: 0 auto; width: 300px" id="signup_container">
     <form method="post" id="signup_form" name="reg_user">
@@ -34,3 +35,13 @@
 <?php } else {
     header("location: /home");
 } ?>
+<?php } else { ?>
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h3 class="panel-title">Error</h3>
+    </div>
+    <div class="panel-body">
+        Registrations are currently disabled!
+    </div>
+</div>
+<?php } ?>
