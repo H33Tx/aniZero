@@ -8,3 +8,13 @@ Please make use of the Discussions-tab of this Project :)
 
 # Changelog
 For changelog, please visit https://anizero.h33t.moe/changelog or the changelog.req.php file in /pages/
+
+# Credits
+
+Please do not remove the footer to credit the hard work of the people who made this software.
+
+Coding by Saintly2k -> https://github.com/saintly2k
+
+Styling by Bootstrap 3.4 -> https://getbootstrap.com
+
+Thanks to forseyq for the awesome logo! -> https://github.com/forseyq
