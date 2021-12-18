@@ -6,11 +6,16 @@ World's (soon to be) most advanced Anime-CMS. Featuring a fully-fledged Account 
 # Contributing
 Please make use of the Discussions-tab of this Project :)
 
+# Installation
+See in the Wiki -> https://github.com/saintly2k/aniZero/wiki/Installation
+
+# Features
+See in the Wiki -> https://github.com/saintly2k/aniZero/wiki/Features-&-To-do
+
 # Changelog
 For changelog, please visit https://anizero.h33t.moe/changelog or the changelog.req.php file in /pages/
 
 # Credits
-
 Please do not remove the footer to credit the hard work of the people who made this software.
 
 Coding by Saintly2k -> https://github.com/saintly2k & Kleineick -> https://github.com/fuhrer-kleineick
