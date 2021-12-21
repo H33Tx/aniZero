@@ -22,4 +22,4 @@ Coding by Saintly2k -> https://github.com/saintly2k & Kleineick -> https://githu
 
 Styling by Bootstrap 3.4 -> https://getbootstrap.com
 
-Thanks to forseyq for the awesome logo! -> https://github.com/forseyq
+Thanks to forseyq for the awesome logo! -> https://github.com/forsey
