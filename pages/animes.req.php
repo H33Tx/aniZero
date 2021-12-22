@@ -7,7 +7,7 @@ $total_pages = $conn->query('SELECT COUNT(*) FROM `anime`')->fetch_row()[0];
 $page = isset($_GET['pagination']) && is_numeric($_GET['pagination']) ? $_GET['pagination'] : 1;
 
 // Number of results to show on each page.
-$num_results_on_page = 25;
+$num_results_on_page = 20;
 
 if ($stmt = $conn->prepare('SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?')) {
 	// Calculate the page to get the results we need from our table.
@@ -20,14 +20,16 @@ if ($stmt = $conn->prepare('SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?'))
 }
 
 ?>
+<meta property="og:title" content="Browse Animes at <?= $config["name"] ?> - Page <?= $page ?>">
+<meta property="og:description" content="Browse all available Animes at <?= $config["name"] ?>. This Link links to page <?= $page ?>, continue browsing there!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Animes - Page <?= $page ?> | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Animes - Page <?= $page ?></h3>
     </div>
     <div class="panel-body">
-        <div class="table-responsive">
-            <table class="table table-striped table-hover table-condensed">
+        <!--<table class="table table-striped table-hover table-condensed">
                 <thead>
                     <tr>
                         <th>Anime</th>
@@ -37,8 +39,9 @@ if ($stmt = $conn->prepare('SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?'))
                         <th width="10%" class="text-right">Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
+                <tbody>-->
+        <div class="row">
+            <?php
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
@@ -48,21 +51,31 @@ if ($stmt = $conn->prepare('SELECT * FROM `anime` ORDER BY `id` ASC LIMIT ?,?'))
                             $episodes = mysqli_fetch_assoc($episodes);
                             $total_views = mysqli_fetch_assoc($total_views);
                     ?>
-                    <tr>
+            <div class="col-sm-3 col-sm-3">
+                <div class="thumbnail" style="height:260px">
+                    <a href="<?= $config["url"]."anime/".$row["id"] ?>">
+                        <img src="<?= $config["url"]."images/animes/".$row["id"].".".$row["image"] ?>" alt="<?= $row["name"] ?>'s Anime-Cover" style="height:170px; width:100%">
+                    </a>
+                    <div class="caption">
+                        <a href="<?= $config["url"]."anime/".$row["id"] ?>"><?= $row["name"] ?></a> (<?= $episodes["total"] ?> Eps.)
+                    </div>
+                </div>
+            </div>
+            <!--<tr>
                         <td><a href="<?= $config["url"] ?>anime/<?= $row["id"] ?>"><?= $row["name"] ?></a></td>
                         <td class="text-center"><?= $total_views["total"] ?></td>
                         <td class="text-center">soon™</td>
                         <td class="text-center"><?= $episodes["total"] ?></td>
                         <td class="text-right"><?php if($row["status"]=="0") { echo "Announced"; } elseif($row["status"]=="1") { echo "Airing"; } else { echo "Completed"; } ?></td>
-                    </tr>
-                    <?php }
+                    </tr>-->
+            <?php }
                     } else {
                         echo "No Anime have been found :(";
                     }
                     ?>
-                </tbody>
-            </table>
         </div>
+        <!--</tbody>
+            </table>-->
         <center>
             <?php if (ceil($total_pages / $num_results_on_page) > 0): ?>
             <ul class="pagination">

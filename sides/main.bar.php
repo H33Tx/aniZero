@@ -2,10 +2,12 @@
     <div class="panel-heading">
         <h3 class="panel-title">My Account</h3>
     </div>
+    <?php if(!isset($_SESSION["username"])) { ?>
     <div class="panel-body">
-        <?php if(!isset($_SESSION["username"])) { ?>
         Please <a href="<?php echo $config["url"]; ?>signup">register</a> or <a href="<?php echo $config["url"]; ?>login">login</a> to view and manage your account.
-        <?php } else { ?>
+    </div>
+    <?php } else { ?>
+    <!--<div class="panel-body">
         Welcome, <a href="<?php echo $config["url"]; ?>user/<?php echo $uID; echo "/"; echo $uName; ?>"><?php echo $uName; ?></a>!
         <hr>
         <ul>
@@ -22,6 +24,18 @@
         </ul>
         <hr>
         <a href="<?php echo $config["url"]; ?>logout">Logout</a>
+    </div>-->
+    <div class="list-group">
+        <a href="<?= $config["url"] ?>user/<?= $uID ?>/<?= $uName ?>" class="list-group-item">My Profile</a>
+        <a href="<?= $config["url"] ?>user/follows/" class="list-group-item">Follows</a>
+        <a href="<?= $config["url"] ?>user/watchlist/<?= $uID ?>" class="list-group-item">Watchlist</a>
+        <a href="<?= $config["url"] ?>user/settings/" class="list-group-item">Edit Account</a>
+        <?php if($uGroup=="Administrator") { ?>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("wrench") ?> Admin-Panel</a>
+        <?php } if($uGroup=="Moderator" || $uGroup=="Administrator") { ?>
+        <a href="<?= $config["url"] ?>system/mod/" class="list-group-item"><?= glyph("wrench") ?> Mod-Panel</a>
         <?php } ?>
+        <a href="<?= $config["url"] ?>user/watchlist/<?= $uID ?>" class="list-group-item list-group-item-danger">Logout</a>
     </div>
+    <?php } ?>
 </div>

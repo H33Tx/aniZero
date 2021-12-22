@@ -55,7 +55,9 @@ if(isset($aID)) {
         }
     
 ?>
-
+<meta property="og:title" content="Watch Episode <?= $reEP ?> of <?= $aName ?> Online in HD for Free? <?= $config["name"] ?> rocks the stage!">
+<meta property="og:description" content="Watch Episode <?= $reEP ?> of <?= $aName ?> today for Free Online in HD, no fees, nothing. Only Ads, but not excessive. Why you should watch at <?= $config["name"] ?>? Simply because you wanna see Ads and support a small site :)">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Watch <?= $aName ?> Episode <?= $reEP ?> | <?= $config["name"] ?></title>
 <style>
     .vid-container {
@@ -125,6 +127,9 @@ if(isset($aID)) {
 </div>
 
 <?php } else { ?>
+<meta property="og:title" content="Episode not found! <?= $config["name"] ?> doesn't like that either...">
+<meta property="og:description" content="It seems like you broke me... once again. Oh dear lord, when will y'all stop breaking me in two, three and even more?!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Error: Episode not found | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -137,6 +142,9 @@ if(isset($aID)) {
 </div>
 <?php };
 } else { ?>
+<meta property="og:title" content="Anime not found! <?= $config["name"] ?> doesn't like that either...">
+<meta property="og:description" content="It seems like you broke me... once again. Oh dear lord, when will y'all stop breaking me in two, three and even more?!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Error: Anime not found | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">

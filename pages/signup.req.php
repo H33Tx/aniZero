@@ -1,3 +1,6 @@
+<meta property="og:title" content="Signing up your Account at <?= $config["name"] ?>!">
+<meta property="og:description" content="Become part of the superior Anime-Website. Today. Free. Forever.">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Register | <?php echo $config["name"]; ?></title>
 <?php if($config["registration"]=="1") { ?>
 <?php if(!isset($_SESSION["username"])) { ?>

@@ -1,3 +1,6 @@
+<meta property="og:title" content="Check out the newest Releases of <?= $config["name"] ?>!">
+<meta property="og:description" content="Wanna Discover some new stuff? Here ya go!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <?php
 
 // Get the total number of records from our table "students".

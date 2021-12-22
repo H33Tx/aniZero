@@ -1,3 +1,6 @@
+<meta property="og:title" content="Release Schedule of <?= $config["name"] ?>.">
+<meta property="og:description" content="Wanna know what Anime comes next? Check this out, here you get to know it!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <?php
 
 $schedule = $conn->query("SELECT * FROM `schedule` ORDER BY day ASC, time ASC");
@@ -65,7 +68,7 @@ $schedule = $conn->query("SELECT * FROM `schedule` ORDER BY day ASC, time ASC");
                         <td><?= $row["day"] ?></td>
                         <td><?= $row["time"] ?></td>
                         <td>Ep. <?= $episode["episode"] ?></td>
-                        <td><a href=""><?= $anime["name"] ?></a></td>
+                        <td><a href="<?= $config["url"] ?>anime/<?= $anime["id"] ?>"><?= $anime["name"] ?></a></td>
                     </tr>
                     <?php
         }

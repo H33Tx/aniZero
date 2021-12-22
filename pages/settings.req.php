@@ -1,3 +1,6 @@
+<meta property="og:title" content="Account Settings of your <?= $config["name"] ?> Account.">
+<meta property="og:description" content="Switch between Themes, add your socials and manage much more! Gain superiority with an <?= $config["name"] ?> Account today.">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <?php
 
 if(!isset($_SESSION["username"])) {

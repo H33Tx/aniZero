@@ -1,4 +1,64 @@
+<meta property="og:title" content="Changelog of <?= $config["name"] ?>">
+<meta property="og:description" content="What's happening at the site? Read it here!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Changelog | <?php echo $config["name"]; ?></title>
+
+<div class="panel panel-default" id="22-12-2021">
+    <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 22.12.2021 <small>v0.2.2</small></h3>
+    </div>
+    <div class="panel-body">
+        Reworked:
+        <ul>
+            <li>Sidebar, from ugly menu items to stylish items (also, I forgot to fully integrate Glyphicons to the new sidebar, I'm sorry)</li>
+            <li>Shows now Version in a fancy way in the footer</li>
+        </ul>
+        Also, just a small announcement: This'll be the last push for 2021. I'll be in Barcelona for a week until the end of December. Happy new year (before I forget to mention it).
+    </div>
+</div>
+
+<div class="panel panel-default" id="21-12-2021">
+    <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 21.12.2021 <small>v0.2.1</small></h3>
+    </div>
+    <div class="panel-body">
+        Added:
+        <ul>
+            <li>Adding Episodes</li>
+        </ul>
+        Fixed:
+        <ul>
+            <li>Bookmark page once again (didn't work out as planned in v0.2.0)</li>
+        </ul>
+        Preparations:
+        <ul>
+            <li>Editing Episodes</li>
+            <li>Deleting Episodes</li>
+            <li>Editing Animes</li>
+            <li>Deleting Animes</li>
+        </ul>
+        <i>These changes have not been commited to GitHub yet. I forgor and will push them with v0.2.2.</i>
+    </div>
+</div>
+
+<div class="panel panel-default" id="18-12-2021">
+    <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 18.12.2021 <small>v0.2.0</small></h3>
+    </div>
+    <div class="panel-body">
+        Added:
+        <ul>
+            <li>If Watchlist set to private, it won't be shown to others (shows error to users that it is private)</li>
+            <li>Completely reworked the design on the Animes-page</li>
+        </ul>
+        Fixed:
+        <ul>
+            <li>Bookmark-Page buggy if no Animes found</li>
+            <li>Links to Anime on Schedule-page</li>
+        </ul>
+        <i>These changes have not been commited to GitHub yet. I forgor and will push them with v0.2.1.</i>
+    </div>
+</div>
 
 <div class="panel panel-default" id="10-12-2021">
     <div class="panel-heading">

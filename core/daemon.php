@@ -1,5 +1,24 @@
 <?php
 
+if(isset($_POST["add_episode"])) {
+    $anime_id = mysqli_real_escape_string($conn, $_POST["anime_id"]);
+    $anime_episode = mysqli_real_escape_string($conn, $_POST["anime_episode"]);
+    $anime_type = mysqli_real_escape_string($conn, $_POST["anime_type"]);
+    $anime_host = mysqli_real_escape_string($conn, $_POST["anime_host"]);
+    //if($anime_host=="1") {
+        // External Source
+        $anime_service = mysqli_real_escape_string($conn, $_POST["external_service"]);
+        $anime_url = mysqli_real_escape_string($conn, $_POST["external_url"]);
+    //} else {
+        // Internal Source - Soon to come (if smbdy knows how to do it)
+    //}
+    
+    // Need to implement a check if episode already exists (someday)
+    $conn->query("INSERT INTO `episodes`(`aid`,`sub`,`episode`,`source`,`host`) VALUES('$anime_id','$anime_type','$anime_episode','$anime_url','$anime_service')");
+    
+    header("location: ".$config["url"]."system/admin/add_episode/$anime_id/$anime_episode/$anime_type/$anime_host/$anime_service");
+}
+
 // Delete Schedule Entry
 if(isset($_POST["delete_schedule"])) {
     $schedule = mysqli_real_escape_string($conn, $_POST["schedule_id"]);
@@ -268,6 +287,12 @@ if (isset($_POST['login_user'])) {
         setcookie("loggedincookie", $username, time()+(86400*30), "/");
         header('location: /home');
     }
+}
+
+/* FUNCTIONS */
+
+function glyph($typeX) {
+    return "<span class='glyphicon glyphicon-$typeX'></span>";
 }
 
 ?>

@@ -165,7 +165,9 @@ else {
 ?>
 
 <?php if(!isset($rName)) { ?>
-
+<meta property="og:title" content="User not found... <?= $config["name"] ?> not likie what u doing">
+<meta property="og:description" content="Seems like you broke me... or I broke you. This User doesn't exsist... he even never existed?! Could also be the user using a fake Email :^)">
+<meta property="og:image" content="<?php echo $config["url"]; ?>404.png">
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Error</h3>
@@ -176,7 +178,9 @@ else {
 </div>
 
 <?php } else { ?>
-
+<meta property="og:title" content="Profile of <?= $rName ?> at <?= $config["name"] ?>">
+<meta property="og:description" content="About Me: <?= $rAbout ?> | Joined at <?= $rJoin ?> | View this Profile with more details at <?= $config["name"] ?>? Yes please!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>images/users/<?= $reID ?>.<?= $rImage ?>">
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><?php echo $rName; echo " <small>"; echo "UID: $reID"; echo "</small>"; ?></h3>

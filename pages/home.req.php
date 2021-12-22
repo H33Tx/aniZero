@@ -1,3 +1,6 @@
+<meta property="og:title" content="The Home of <?= $config["name"] ?>!">
+<meta property="og:description" content="<?= $config["descr"] ?>">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Home | <?php echo $config["name"]; ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">

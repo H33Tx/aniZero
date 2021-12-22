@@ -1,7 +1,7 @@
 <?php
 
 $reID = $_GET["from"];
-if(isset($_GET["after"])) {
+if(!empty($_GET["after"])) {
     $sStatus = $_GET["after"];
 } else {
     $sStatus = "all";
@@ -61,14 +61,11 @@ if ($stmt = $conn->prepare($rooting)) {
 //PAGINATION PREPS DONE
 
 $dreamingindigital2 = $conn->query($dreamer);
-if($dreamingindigital2->num_rows > 0) {
-    while($rRow = $dreamingindigital2->fetch_assoc()) {
-        $qwerty = $conn->query("SELECT `username` FROM `users` WHERE `id`='$reID' LIMIT 1");
-        if($qwerty->num_rows > 0) {
-            while($qRow = $qwerty->fetch_assoc()) {
-                $rName = $qRow["username"];
-            }
-        }
+$qwerty = $conn->query("SELECT * FROM `users` WHERE `id`='$reID' LIMIT 1");
+    if($qwerty->num_rows > 0) {
+    while($qRow = $qwerty->fetch_assoc()) {
+        $rName = $qRow["username"];
+        $rPrivate = $qRow["watchlist"];
     }
 }
 
@@ -82,7 +79,7 @@ if($dreamingindigital2->num_rows > 0) {
 
         <?php
 
-        if ($dreamingindigital2->num_rows > 0) {
+        if ($dreamingindigital2->num_rows > 0 && $rPrivate == "0") {
                  
                  if (ceil($total_pages / $num_results_on_page) > 0): ?>
         <!--<center>
@@ -195,7 +192,11 @@ if($dreamingindigital2->num_rows > 0) {
         </center>
         <?php endif; 
         } else {
-            echo "You didn't bookmark anything yet :(";
+            if($rPrivate=="1") {
+                echo "<b><a href='".$config["url"]."user/$reID/$rName'>$rName's</a></b> Watchlist ist set to private.";
+            } else {
+                echo "<b><a href='".$config["url"]."user/$reID/$rName'>$rName</a></b> didn't bookmark anything yet :(";
+            }
         }?>
     </div>
 </div>

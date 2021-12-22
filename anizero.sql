@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 10, 2021 at 11:27 PM
+-- Generation Time: Dec 22, 2021 at 10:12 PM
 -- Server version: 5.7.36-0ubuntu0.18.04.1
 -- PHP Version: 7.2.34-26+ubuntu18.04.1+deb.sury.org+1
 
@@ -25,6 +25,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `anime`
 --
+-- Creation: Dec 02, 2021 at 11:33 PM
+--
 
 CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
@@ -42,6 +44,9 @@ CREATE TABLE `anime` (
 --
 -- Table structure for table `anime_views`
 --
+-- Creation: Dec 01, 2021 at 04:12 PM
+-- Last update: Dec 22, 2021 at 05:07 PM
+--
 
 CREATE TABLE `anime_views` (
   `id` int(11) NOT NULL,
@@ -53,6 +58,9 @@ CREATE TABLE `anime_views` (
 
 --
 -- Table structure for table `bookmarks`
+--
+-- Creation: Nov 17, 2021 at 10:33 PM
+-- Last update: Dec 21, 2021 at 12:27 AM
 --
 
 CREATE TABLE `bookmarks` (
@@ -69,6 +77,8 @@ CREATE TABLE `bookmarks` (
 --
 -- Table structure for table `comments_anime`
 --
+-- Creation: Dec 02, 2021 at 12:21 AM
+--
 
 CREATE TABLE `comments_anime` (
   `id` int(11) NOT NULL,
@@ -82,6 +92,8 @@ CREATE TABLE `comments_anime` (
 
 --
 -- Table structure for table `comments_episode`
+--
+-- Creation: Dec 02, 2021 at 12:20 AM
 --
 
 CREATE TABLE `comments_episode` (
@@ -98,6 +110,8 @@ CREATE TABLE `comments_episode` (
 --
 -- Table structure for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 --
+-- Creation: Dec 01, 2021 at 04:14 PM
+--
 
 CREATE TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES` (
   `id` int(11) NOT NULL,
@@ -109,11 +123,14 @@ CREATE TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES` (
 --
 -- Table structure for table `episodes`
 --
+-- Creation: Dec 19, 2021 at 09:30 PM
+-- Last update: Dec 21, 2021 at 09:24 AM
+--
 
 CREATE TABLE `episodes` (
   `id` int(11) NOT NULL,
   `aid` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
   `sub` int(1) NOT NULL DEFAULT '1',
   `episode` int(11) NOT NULL,
   `released` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -125,6 +142,8 @@ CREATE TABLE `episodes` (
 
 --
 -- Table structure for table `ratings`
+--
+-- Creation: Dec 02, 2021 at 11:54 PM
 --
 
 CREATE TABLE `ratings` (
@@ -139,6 +158,8 @@ CREATE TABLE `ratings` (
 --
 -- Table structure for table `schedule`
 --
+-- Creation: Dec 09, 2021 at 11:13 PM
+--
 
 CREATE TABLE `schedule` (
   `id` int(11) NOT NULL,
@@ -152,10 +173,14 @@ CREATE TABLE `schedule` (
 --
 -- Table structure for table `settings`
 --
+-- Creation: Dec 21, 2021 at 10:29 AM
+-- Last update: Dec 21, 2021 at 10:30 AM
+--
 
 CREATE TABLE `settings` (
   `id` int(11) NOT NULL,
   `registration` tinyint(1) NOT NULL,
+  `slogan` varchar(150) NOT NULL,
   `theme` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `url` varchar(200) NOT NULL,
@@ -169,13 +194,15 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `registration`, `theme`, `name`, `url`, `logo`, `descr`, `email`, `cleanip`) VALUES
-(1, 1, 1, 'AniZero', 'http://localhost/', 'anizero.png', 'AniZero is your place to watch Anime Online in High Quality! Bookmark them and keep track of your progress by logging in or creating an Account. Anime Rocks!', 'ninefreaks@yandex.com', 0);
+INSERT INTO `settings` (`id`, `registration`, `slogan`, `theme`, `name`, `url`, `logo`, `descr`, `email`, `cleanip`) VALUES
+(1, 1, 'Your place to watch Anime online!', 1, 'AniZero', 'https://anizero.h33t.moe/', 'anizero.png', 'AniZero is your place to watch Anime Online in High Quality! Bookmark them and keep track of your progress by logging in or creating an Account. Anime Rocks!', 'ninefreaks@yandex.com', 0);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `tag_cloud`
+--
+-- Creation: Nov 29, 2021 at 07:23 PM
 --
 
 CREATE TABLE `tag_cloud` (
@@ -188,6 +215,8 @@ CREATE TABLE `tag_cloud` (
 --
 -- Table structure for table `tag_relation`
 --
+-- Creation: Nov 29, 2021 at 07:23 PM
+--
 
 CREATE TABLE `tag_relation` (
   `id` int(11) NOT NULL,
@@ -199,6 +228,9 @@ CREATE TABLE `tag_relation` (
 
 --
 -- Table structure for table `users`
+--
+-- Creation: Nov 18, 2021 at 07:31 PM
+-- Last update: Dec 21, 2021 at 09:43 AM
 --
 
 CREATE TABLE `users` (
@@ -311,17 +343,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `anime_views`
 --
 ALTER TABLE `anime_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `comments_anime`
 --
@@ -336,12 +368,12 @@ ALTER TABLE `comments_episode`
 -- AUTO_INCREMENT for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 --
 ALTER TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `episodes`
 --
 ALTER TABLE `episodes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ratings`
 --
@@ -351,12 +383,12 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tag_cloud`
 --
@@ -371,7 +403,7 @@ ALTER TABLE `tag_relation`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

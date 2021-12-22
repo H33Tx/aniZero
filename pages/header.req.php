@@ -7,9 +7,7 @@
     <meta name="description" content="<?= $config["descr"] ?>">
     <meta name="keywords" content="anime, stream, stream anime, free anime, anime free, 9anime, anizero, ani zero, english anime, anime sub, anime dub, animesub, animedub, watch anime free, stream anime free">
 
-    <meta property="og:site_name" content="<?php echo $config["name"]; ?>">
-    <meta property="og:title" content="<?php echo $config["name"]; ?>">
-    <meta property="og:image" content="<?php echo $config["url"]."favicon.ico"; ?>">
+    <meta property="og:site_name" content="<?php echo $config["name"]; ?> - <?= $config["slogan"] ?>">
 
     <link href="<?php echo $config["url"]; ?>scripts/bootstrap/css/bootstrap.<?php echo $uTheme; ?>.css" rel="stylesheet">
     <link href="<?php echo $config["url"]; ?>scripts/bootstrap/css/bootstrap-select.min.css?v=1" rel="stylesheet">

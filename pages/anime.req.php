@@ -13,6 +13,9 @@ $anime = mysqli_fetch_assoc($anime);
 
 <?php if(!empty($anime["name"])) { ?>
 
+<meta property="og:title" content="Watch <?php echo $anime["name"]; ?> Online for free at <?= $config["name"] ?>!">
+<meta property="og:description" content="Description: <?= $anime["description"] ?> | Curious? Watch it on <?= $config["name"] ?> for Free & Online, NOW!">
+<meta property="og:image" content="<?php echo $config["url"]; ?>images/animes/<?= $anime["id"] ?>.<?= $anime["image"] ?>">
 <title><?= $anime["name"] ?> | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -41,6 +44,11 @@ $anime = mysqli_fetch_assoc($anime);
                         <td>Soon™</td>
                     </tr>
                 </table>
+                <?php if(($uGroup=="Moderator") || ($uGroup=="Administrator")) { ?>
+                <a href="<?= $config["url"] ?>system/admin/edit_anime/<?= $anime["id"] ?>" class="btn-success btn"><?= glyph("pencil") ?> Edit</a>
+                <a href="<?= $config["url"] ?>system/admin/add_episode/<?= $anime["id"] ?>/" class="btn-success btn"><?= glyph("plus") ?> Add Episode</a>
+                <a href="<?= $config["url"] ?>system/admin/delete_anime/<?= $anime["id"] ?>" class="btn-danger btn"><?= glyph("trash") ?> Delete Anime</a>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -69,6 +77,9 @@ $anime = mysqli_fetch_assoc($anime);
                 echo "<tr>";
                 echo "<td>";
                 echo "<a href='".$config["url"]."watch/$aid/".$row["episode"]."'>Episode ".$row["episode"]."</a>";
+                if($uGroup=="Administrator" || $uGroup=="Moderator") {
+                    echo " - <a href='".$config["url"]."system/admin/edit_episode/".$row["id"]."' class='label label-default'>Edit</a>";
+                }
                 echo "</td>";
                 echo "<td class='text-right'>";
                 echo $row["released"];
@@ -79,7 +90,7 @@ $anime = mysqli_fetch_assoc($anime);
             </table>
         </div>
         <?php } else {
-            echo "There are no Episodes at the Moment.";
+            echo "There are no Episodes at the Moment. Please check back someday.";
         }
     
     ?>
@@ -104,7 +115,9 @@ if($uGroup=="1" || $uGroup=="2") {
 ?>
 
 <?php } else { ?>
-
+<meta property="og:title" content="Error: Anime not found? <?= $config["name"] ?> is sad...">
+<meta property="og:description" content="The Anime this Link is linking to doesn't seem to exist... maybe the ID was wrong or so... I do not know, I'm just a website >_>">
+<meta property="og:image" content="<?php echo $config["url"]; ?>404.png">
 <title>Error: Anime not found | <?= $config["name"] ?></title>
 <div class="panel panel-default">
     <div class="panel-heading">

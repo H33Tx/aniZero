@@ -1,3 +1,6 @@
+<meta property="og:title" content="Login to <?= $config["name"] ?> with your Account!">
+<meta property="og:description" content="*Superiority noises get louder*">
+<meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Login | <?php echo $config["name"]; ?></title>
 <?php if(!isset($_SESSION["username"])) { ?>
 <div style="margin: 0 auto; width: 300px" id="login_container">
