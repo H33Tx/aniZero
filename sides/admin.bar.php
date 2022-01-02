@@ -5,16 +5,16 @@
         <h3 class="panel-title">Shortcuts</h3>
     </div>
     <div class="list-group">
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Admin Home</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">General Settings</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Schedule</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Add Anime</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Browse Animes</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Browse Episodes</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Manage Comments</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Manage Users</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">Browse Users</a>
-        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item">View Reports</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("home") ?> Admin Home</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("wrench") ?> General Settings</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("calendar") ?> Schedule</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("plus") ?> Add Anime</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("list") ?> Browse Animes</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("list") ?> Browse Episodes</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("wrench") ?> Manage Comments</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("wrench") ?> Manage Users</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("list") ?> Browse Users</a>
+        <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("list") ?> View Reports</a>
         <!--<ul>
             <li><a href="<?= $config["url"] ?>system/admin/default">Admin Home</a></li>
             <li><a href="<?= $config["url"] ?>system/admin/general_settings">General Settings</a></li>

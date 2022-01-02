@@ -3,9 +3,30 @@
 <meta property="og:image" content="<?php echo $config["url"]; ?>sup.png">
 <title>Changelog | <?php echo $config["name"]; ?></title>
 
+<div class="panel panel-default" id="31-12-2021">
+    <div class="panel-heading">
+        <h3 class="panel-title">Changelog of 31.12.2921 <small>v0.2.2</small></h3>
+    </div>
+    <div class="panel-body">
+        Added:
+        <ul>
+            <li>Security when custom user input to prevent SQL injections, etc</li>
+            <li>Editing Animes</li>
+            <li>Deleting Animes</li>
+            <li>Preperations for Barebones Comment System</li>
+        </ul>
+        Fixed:
+        <ul>
+            <li>Link to GitHub repo on Notice on top</li>
+            <li>Icons on Navbar</li>
+        </ul>
+        Also, I caught Covid... ugh.<br>
+    </div>
+</div>
+
 <div class="panel panel-default" id="22-12-2021">
     <div class="panel-heading">
-        <h3 class="panel-title">Changelog of 22.12.2021 <small>v0.2.2</small></h3>
+        <h3 class="panel-title">Changelog of 22.12.2021 <small>v0.2.1-fix</small></h3>
     </div>
     <div class="panel-body">
         Reworked:
@@ -37,7 +58,7 @@
             <li>Editing Animes</li>
             <li>Deleting Animes</li>
         </ul>
-        <i>These changes have not been commited to GitHub yet. I forgor and will push them with v0.2.2.</i>
+        <i>These changes have not been commited to GitHub yet. I forgor and will push them with v0.2.1-fix.</i>
     </div>
 </div>
 
@@ -56,7 +77,7 @@
             <li>Bookmark-Page buggy if no Animes found</li>
             <li>Links to Anime on Schedule-page</li>
         </ul>
-        <i>These changes have not been commited to GitHub yet. I forgor and will push them with v0.2.1.</i>
+        <i>These changes have not been commited to GitHub yet. I forgor and will push them with v0.2.1-fix.</i>
     </div>
 </div>
 

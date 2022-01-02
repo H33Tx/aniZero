@@ -1,5 +1,40 @@
 <?php
 
+if(isset($_POST["delete_anime_disc"])) {
+    $anime = mysqli_real_escape_string($conn, $_POST["anime"]);
+}
+
+if(isset($_POST["delete_anime_conf"])) {
+    $anime = mysqli_real_escape_string($conn, $_POST["anime"]);
+    $conn->query("DELETE FROM `anime` WHERE `id`='$anime' LIMIT 1");
+    $conn->query("DELETE FROM `episodes` WHERE `aid`='$anime'");
+    $nextA = $conn->query("SELECT `id` FROM `anime` ORDER BY `id` DESC LIMIT 1");
+    $nextA = mysqli_fetch_assoc($nextA);
+    $nextA = $nextA["id"];
+    $nextA++;
+    $conn->query("ALTER TABLE `anime` AUTO_INCREMENT=$nextA;");
+    
+    header("location: ".$config["url"]."system/admin/");
+}
+
+if(isset($_POST["edit_anime"])) {
+    $anime_id = mysqli_real_escape_string($conn, $_POST["anime_id"]);
+    $anime_name = strip_tags(mysqli_real_escape_string($conn, $_POST["anime_name"]));
+    $anime_alternates = strip_tags(mysqli_real_escape_string($conn, $_POST["anime_alternates"]));
+    $anime_desc = mysqli_real_escape_string($conn, $_POST["anime_desc"]);
+    $anime_status = mysqli_real_escape_string($conn, $_POST["anime_status"]);
+    
+    $conn->query("UPDATE `anime` SET `name`='$anime_name', `alternates`='$anime_alternates', `description`='$anime_desc', `status`='$anime_status' WHERE `id`='$anime_id' LIMIT 1");
+    
+    header("location: ".$config["url"]."anime/$anime_id");
+}
+
+if(isset($_POST["delete_anime_link"])) {
+    $aid = mysqli_real_escape_string($conn, $_POST["anime_id"]);
+    //echo $config["url"]."system/admin/delete_anime/$aid/";
+    header("location: ".$config["url"]."system/admin/delete_anime/$aid/");
+}
+
 if(isset($_POST["add_episode"])) {
     $anime_id = mysqli_real_escape_string($conn, $_POST["anime_id"]);
     $anime_episode = mysqli_real_escape_string($conn, $_POST["anime_episode"]);
@@ -61,7 +96,7 @@ if(isset($_POST["edit_settings_advanced"])) {
 
 // Save Admin Contact Settings
 if(isset($_POST["edit_settings_contact"])) {
-    $webmaster_email = mysqli_real_escape_string($conn, $_POST["webmaster_email"]);
+    $webmaster_email = strip_tags(mysqli_real_escape_string($conn, $_POST["webmaster_email"]));
     
     $conn->query("UPDATE `settings` SET `email`='$webmaster_email' WHERE `id`='1'");
     header("location: ".$config["url"]."system/admin/general_settings");
@@ -85,10 +120,10 @@ if(isset($_POST["edit_settings_layout"])) {
 
 // Save Admin General Settings
 if(isset($_POST["edit_settings_default"])) {
-    $site_name = mysqli_real_escape_string($conn, $_POST["site_name"]);
-    $site_url = mysqli_real_escape_string($conn, $_POST["site_url"]);
-    $site_descr = mysqli_real_escape_string($conn, $_POST["site_descr"]);
-    $site_logo = mysqli_real_escape_string($conn, $_POST["site_logo"]);
+    $site_name = strip_tags(mysqli_real_escape_string($conn, $_POST["site_name"]));
+    $site_url = strip_tags(mysqli_real_escape_string($conn, $_POST["site_url"]));
+    $site_descr = strip_tags(mysqli_real_escape_string($conn, $_POST["site_descr"]));
+    $site_logo = strip_tags(mysqli_real_escape_string($conn, $_POST["site_logo"]));
     
     $conn->query("UPDATE `settings` SET `name`='$site_name', `url`='$site_url', `descr`='$site_descr', `logo`='$site_logo' WHERE `id`='1'");
     header("location: ".$config["url"]."system/admin/general_settings");
@@ -97,8 +132,8 @@ if(isset($_POST["edit_settings_default"])) {
 // Add Anime
 if(isset($_POST["add_anime"])) {
     $image = mysqli_real_escape_string($conn, $_POST["anime_image"]);
-    $name = mysqli_real_escape_string($conn, $_POST["anime_name"]);
-    $alternates = mysqli_real_escape_string($conn, $_POST["anime_alternates"]);
+    $name = strip_tags(mysqli_real_escape_string($conn, $_POST["anime_name"]));
+    $alternates = strip_tags(mysqli_real_escape_string($conn, $_POST["anime_alternates"]));
     $status = mysqli_real_escape_string($conn, $_POST["anime_status"]);
     $description = mysqli_real_escape_string($conn, $_POST["anime_description"]);
     
@@ -146,42 +181,44 @@ if(isset($_POST["edit-privacy"])) {
     $private = mysqli_real_escape_string($conn, $_POST["private"]);
     $watchlist = mysqli_real_escape_string($conn, $_POST["watchlist"]);
     $antiheld = $conn->query("UPDATE `users` SET `watchlist`='$watchlist', `private`='$private' WHERE `id`='$uID'");
-    header("Refresh:0");
-    echo '<div class="container"><div id="announcement" class="alert alert-success alert-dismissible text-center" role="alert"><strong>Success:</strong> Your Privacy settings have changed!</div></div>';
+    header("location:".$config["url"]."user/settings/");
 }
 
 // Editing Appearance
 if(isset($_POST["edit-appearance"])) {
     $theme = mysqli_real_escape_string($conn, $_POST["theme"]);
     $antiheld = $conn->query("UPDATE `users` SET `theme`='$theme' WHERE `id`='$uID'");
-    header("Refresh:0");
-    echo '<div class="container"><div id="announcement" class="alert alert-success alert-dismissible text-center" role="alert"><strong>Success:</strong> Your site appearance has changed!</div></div>';
+    header("location:".$config["url"]."user/settings/");
 }
 
 // Editing Socials
 if(isset($_POST["edit-socials"])) {
     $website = mysqli_real_escape_string($conn, $_POST['website']);
     if(!empty($website)) {
+        $website = strip_tags(mysqli_real_escape_string($conn, $_POST["website"]));
         $antiheld = $conn->query("UPDATE `users` SET `website`='$website' WHERE `id`='$uID'");
     }
     $twitter = mysqli_real_escape_string($conn, $_POST['twitter']);
     if(!empty($twitter)) {
+        $twitter = strip_tags(mysqli_real_escape_string($conn, $_POST["twitter"]));
         $antiheld = $conn->query("UPDATE `users` SET `twitter`='$twitter' WHERE `id`='$uID'");
     }
     $facebook = mysqli_real_escape_string($conn, $_POST['facebook']);
     if(!empty($facebook)) {
+        $facebook = strip_tags(mysqli_real_escape_string($conn, $_POST["facebook"]));
         $antiheld = $conn->query("UPDATE `users` SET `facebook`='$facebook' WHERE `id`='$uID'");
     }
     $instagram = mysqli_real_escape_string($conn, $_POST['instagram']);
     if(!empty($instagram)) {
+        $instagram = strip_tags(mysqli_real_escape_string($conn, $_POST["instagram"]));
         $antiheld = $conn->query("UPDATE `users` SET `instagram`='$instagram' WHERE `id`='$uID'");
     }
     $about = mysqli_real_escape_string($conn, $_POST['about']);
     if(!empty($about)) {
+        $about = strip_tags(mysqli_real_escape_string($conn, $_POST["about"]));
         $antiheld = $conn->query("UPDATE `users` SET `about`='$about' WHERE `id`='$uID'");
     }
-    header("Refresh:0");
-    echo '<div class="container"><div id="announcement" class="alert alert-success alert-dismissible text-center" role="alert"><strong>Success:</strong> Your socials have been edited!</div></div>';
+    header("location:".$config["url"]."user/settings/");
 }
 
 // Editing Password
@@ -198,8 +235,9 @@ if(isset($_POST["edit-password"])) {
         if(mysqli_num_rows($password_query)==1) { //Old passwords matching?
             // Old passwords matching!!
             $password_change_query = $conn->query("UPDATE `users` SET `password`='$new_password' WHERE `password`='$old_password2' AND `id`='$uID'");
-            header("Refresh:0");
-            echo '<div class="container"><div id="announcement" class="alert alert-success alert-dismissible text-center" role="alert"><strong>Success:</strong> Your Password has been changed!</div></div>';
+            session_destroy();
+            session_unset();
+            header("location:".$config["url"]."login/");
         } else {
             // Don't match :/
             echo '<div class="container"><div id="announcement" class="alert alert-danger alert-dismissible text-center" role="alert"><strong>Error:</strong> Your actual Old Password doesn\'t match with the old password entered! If you forgot your password, please contact '.$config["email"].'</div></div>';
@@ -220,8 +258,7 @@ if(isset($_POST["edit-profile"])) {
     //$result = $conn->query("UPDATE `users` SET `username`='$username', `email`='$email', `gender`='$gender', `avatar`='$avatar'");
     $result = $conn->query("UPDATE `users` SET `gender`='$gender' WHERE `id`='$uID' LIMIT 1");
     //echo "<script type='text/javascript'>window.location.reload(false)</script>";
-    header("Refresh:0");
-    echo '<div class="container"><div id="announcement" class="alert alert-success alert-dismissible text-center" role="alert"><strong>Success:</strong> Your Profile has been updated!</div></div>';
+    header("location:".$config["url"]."user/settings/");
 }
 
 // User-Registration

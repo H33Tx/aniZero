@@ -59,7 +59,7 @@ include("pages/header.req.php");
                 <input id="read_announcement_button" type="submit" class="close" aria-label="Close" value="&times;" name="read-announce">
             </form>
             <?php } ?>
-            <strong>Notice:</strong> The software that powers this site is still in development, please check the <a href="https://github.com/saintly2k/aniZero" target="_blank">GitHub</a> for updates!
+            <strong>Notice:</strong> The software that powers this site is still in development, please check the <a href="https://github.com/H33Tx/aniZero" target="_blank">GitHub</a> for updates!
         </div>
         <?php endif; ?>
 

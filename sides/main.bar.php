@@ -26,16 +26,16 @@
         <a href="<?php echo $config["url"]; ?>logout">Logout</a>
     </div>-->
     <div class="list-group">
-        <a href="<?= $config["url"] ?>user/<?= $uID ?>/<?= $uName ?>" class="list-group-item">My Profile</a>
-        <a href="<?= $config["url"] ?>user/follows/" class="list-group-item">Follows</a>
-        <a href="<?= $config["url"] ?>user/watchlist/<?= $uID ?>" class="list-group-item">Watchlist</a>
-        <a href="<?= $config["url"] ?>user/settings/" class="list-group-item">Edit Account</a>
+        <a href="<?= $config["url"] ?>user/<?= $uID ?>/<?= $uName ?>" class="list-group-item"><?= glyph("user") ?> My Profile</a>
+        <a href="<?= $config["url"] ?>user/follows/" class="list-group-item"><?= glyph("pushpin") ?> Follows</a>
+        <a href="<?= $config["url"] ?>user/watchlist/<?= $uID ?>" class="list-group-item"><?= glyph("bookmark") ?> Watchlist</a>
+        <a href="<?= $config["url"] ?>user/settings/" class="list-group-item"><?= glyph("wrench") ?> Edit Account</a>
         <?php if($uGroup=="Administrator") { ?>
         <a href="<?= $config["url"] ?>system/admin/" class="list-group-item"><?= glyph("wrench") ?> Admin-Panel</a>
         <?php } if($uGroup=="Moderator" || $uGroup=="Administrator") { ?>
         <a href="<?= $config["url"] ?>system/mod/" class="list-group-item"><?= glyph("wrench") ?> Mod-Panel</a>
         <?php } ?>
-        <a href="<?= $config["url"] ?>user/watchlist/<?= $uID ?>" class="list-group-item list-group-item-danger">Logout</a>
+        <a href="<?= $config["url"] ?>logout" class="list-group-item list-group-item-danger"><?= glyph("log-out") ?> Logout</a>
     </div>
     <?php } ?>
 </div>

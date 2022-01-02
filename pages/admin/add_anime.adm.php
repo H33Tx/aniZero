@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label class="col-sm-3">Status:</label>
                 <div class="col-sm-9">
-                    <select class="form-control" name="anime_status">
+                    <select class="form-control selectpicker" name="anime_status">
                         <option value="0">Announced</option>
                         <option value="1" selected>Airing</option>
                         <option value="2">Completed</option>

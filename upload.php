@@ -4,6 +4,16 @@
 </form>
 <?php 
 
+$whatthehellisthis = $_GET["action"];
+if($whatthehellisthis=="update_cover") {
+    $nextA = $_GET["id"];
+} else {
+    $nextA = $conn->query("SELECT `id` FROM `anime` ORDER BY `id` DESC LIMIT 1");
+    $nextA = mysqli_fetch_assoc($nextA);
+    $nextA = $nextA["id"];
+    $nextA++;
+}
+
 $name = $_FILES['file']['name'];
 
 $tmp_name = $_FILES['file']['tmp_name'];
@@ -24,7 +34,24 @@ if (isset($name)) {
         } elseif(($fileextension == "jpg") || ($fileextension == "jpeg") || ($fileextension == "png") || ($fileextension == "bmp")) {
             if(move_uploaded_file($tmp_name, $path.$nextA.".".$fileextension)) {
                 $success = 'Uploaded!';
-                echo '<script type="text/javascript"> window.location = "'.$config["url"].'system/admin/add_anime/2/'.$fileextension.'"; </script>';
+                if($whatthehellisthis=="update_cover") {
+                    $conn->query("UPDATE `anime` SET `image`='$fileextension' WHERE `id`='$nextA' LIMIT 1");
+                    if($fileextension=="jpg") {
+                        unlink("images/animes/$nextA.jpeg");
+                        unlink("images/animes/$nextA.png");
+                    }
+                    if($fileextension=="jpeg") {
+                        unlink("images/animes/$nextA.jpg");
+                        unlink("images/animes/$nextA.png");
+                    }
+                    if($fileextension=="png") {
+                        unlink("images/animes/$nextA.jpeg");
+                        unlink("images/animes/$nextA.jpg");
+                    }
+                    echo '<script type="text/javascript"> window.location = "'.$config["url"].'system/admin/edit_anime/'.$nextA.'/"; </script>';
+                } else {
+                    echo '<script type="text/javascript"> window.location = "'.$config["url"].'system/admin/add_anime/2/'.$fileextension.'"; </script>';
+                } 
             }
         }
     }
