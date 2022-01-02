@@ -17,29 +17,34 @@ RewriteRule ^system/schedule?(/)?$ ./?page=schedule
 # Watching
 RewriteRule ^animes/?(.*)/?$ ./?page=animes&pagination=$1
 RewriteRule ^anime/(\d+)/?$ ./?page=anime&id=$1
-RewriteRule ^watch/(\d+)/?([0-9])/?$ ./?page=watch&id=$1&ep=$2
+RewriteRule ^watch/(\d+)/?(.*)/?$ ./?page=watch&id=$1&ep=$2
 
 # Users
 RewriteRule ^user/settings/?$ ./?page=settings&setting=$1
 RewriteRule ^user/follows?(/)?(.+)/?$ ./?page=follows&pagination=$1
 RewriteRule ^user/watchlist/(\d+)/?([0-9])?/?(.*)/?$ ./?page=watchlist&from=$1&pagination=$2&after=$3
-RewriteRule ^user/([0-9])/?(.*)/?$ ./?page=user&id=$1
+RewriteRule ^user/(.+)?/?(.*)/?$ ./?page=user&id=$1
 
 # Admin Pages
 RewriteRule ^system/admin/?$ ./?page=admin&action=default
 RewriteRule ^system/admin/default/?$ ./?page=admin&action=default
-RewriteRule ^system/admin/add_anime/?$ ./?page=admin&action=add_anime
-RewriteRule ^system/admin/edit_anime/(.*)/?$ ./?page=admin&action=edit_anime&id=$1
-RewriteRule ^system/admin/browse_anime/?$ ./?page=admin&action=browse_anime
-RewriteRule ^system/admin/edit_episodes/(.*)/?$ ./?page=admin&action=edit_episode&id=$1
-RewriteRule ^system/admin/browse_episodes/?$ ./?page=admin&action=browse_episodes
-RewriteRule ^system/admin/delete_comment/(.*)/?$ ./?page=admin&action=delete_comment&id=$1
-RewriteRule ^system/admin/edit_comment/(.*)/?$ ./?page=admin&action=edit_comment&id=$1
-RewriteRule ^system/admin/manage_comments/?$ ./?page=admin&action=manage_comments
-RewriteRule ^system/admin/manage_users/?$ ./?page=admin&action=manage_users
-RewriteRule ^system/admin/edit_user/(.*)/?$ ./?page=admin&action=edit_user&id=$1
-RewriteRule ^system/admin/browse_users/?$ ./?page=admin&action=browse_users
-RewriteRule ^system/admin/view_reports/?$ ./?page=admin&action=view_reports
-RewriteRule ^system/admin/view_report/(.*)/?$ ./?page=admin&action=view_report&id=$1
+RewriteRule ^system/admin/schedule/?$ ./?page=admin&action=schedule
+RewriteRule ^system/admin/general_settings/?$ ./?page=admin&action=general_settings
+RewriteRule ^system/admin/add_anime/?([0-9])/?(.*)/?$ ./?page=admin&action=add_anime&step=$1&ext=$2
+RewriteRule ^system/admin/add_episode/(.+)/?(.*)/?(.*)/?(.*)/?(.*)/?$ ./?page=admin&action=add_episode&id=$1&ep=$2&type=$3&host=$4&service=$5
+RewriteRule ^system/admin/update_cover/(.+)/?$ ./?page=admin&action=update_cover&id=$1
+RewriteRule ^system/admin/edit_anime/(.+)/?$ ./?page=admin&action=edit_anime&id=$1
+RewriteRule ^system/admin/browse_animes/(.*)/?$ ./?page=admin&action=browse_animes&pagination=$1
+RewriteRule ^system/admin/delete_anime/(.+)/?$ ./?page=admin&action=delete_anime&id=$1
+RewriteRule ^system/admin/delete_episode/(.+)/?$ ./?page=admin&action=delete_episode&id=$1
+RewriteRule ^system/admin/edit_episode/(.+)/?$ ./?page=admin&action=edit_episode&id=$1
+RewriteRule ^system/admin/browse_episodes/(.*)/?$ ./?page=admin&action=browse_episodes&pagination=$1
+RewriteRule ^system/admin/delete_comment/(.+)/?$ ./?page=admin&action=delete_comment&id=$1
+RewriteRule ^system/admin/edit_comment/(.+)/?$ ./?page=admin&action=edit_comment&id=$1
+RewriteRule ^system/admin/manage_comments/(.*)/?$ ./?page=admin&action=manage_comments&pagination=$1
+RewriteRule ^system/admin/edit_user/(.+)/?$ ./?page=admin&action=edit_user&id=$1
+RewriteRule ^system/admin/browse_users/(.*)/?$ ./?page=admin&action=browse_users&pagination=$1
+RewriteRule ^system/admin/view_reports/(.*)/?$ ./?page=admin&action=view_reports&pagination=$1
+RewriteRule ^system/admin/view_report/(.+)/?$ ./?page=admin&action=view_report&id=$1
 
 ErrorDocument 404 /index.php
