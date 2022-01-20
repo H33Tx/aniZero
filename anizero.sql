@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 22, 2021 at 10:12 PM
+-- Generation Time: Jan 20, 2022 at 08:50 PM
 -- Server version: 5.7.36-0ubuntu0.18.04.1
--- PHP Version: 7.2.34-26+ubuntu18.04.1+deb.sury.org+1
+-- PHP Version: 7.3.33-1+ubuntu18.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -25,8 +25,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `anime`
 --
--- Creation: Dec 02, 2021 at 11:33 PM
---
 
 CREATE TABLE `anime` (
   `id` int(11) NOT NULL,
@@ -44,9 +42,6 @@ CREATE TABLE `anime` (
 --
 -- Table structure for table `anime_views`
 --
--- Creation: Dec 01, 2021 at 04:12 PM
--- Last update: Dec 22, 2021 at 05:07 PM
---
 
 CREATE TABLE `anime_views` (
   `id` int(11) NOT NULL,
@@ -58,9 +53,6 @@ CREATE TABLE `anime_views` (
 
 --
 -- Table structure for table `bookmarks`
---
--- Creation: Nov 17, 2021 at 10:33 PM
--- Last update: Dec 21, 2021 at 12:27 AM
 --
 
 CREATE TABLE `bookmarks` (
@@ -77,8 +69,6 @@ CREATE TABLE `bookmarks` (
 --
 -- Table structure for table `comments_anime`
 --
--- Creation: Dec 02, 2021 at 12:21 AM
---
 
 CREATE TABLE `comments_anime` (
   `id` int(11) NOT NULL,
@@ -92,8 +82,6 @@ CREATE TABLE `comments_anime` (
 
 --
 -- Table structure for table `comments_episode`
---
--- Creation: Dec 02, 2021 at 12:20 AM
 --
 
 CREATE TABLE `comments_episode` (
@@ -110,8 +98,6 @@ CREATE TABLE `comments_episode` (
 --
 -- Table structure for table `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES`
 --
--- Creation: Dec 01, 2021 at 04:14 PM
---
 
 CREATE TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES` (
   `id` int(11) NOT NULL,
@@ -122,9 +108,6 @@ CREATE TABLE `DO_NOT_LEAK_OR_SHARE_UNDER_ANY_CIRCUMSTANCES` (
 
 --
 -- Table structure for table `episodes`
---
--- Creation: Dec 19, 2021 at 09:30 PM
--- Last update: Dec 21, 2021 at 09:24 AM
 --
 
 CREATE TABLE `episodes` (
@@ -143,8 +126,6 @@ CREATE TABLE `episodes` (
 --
 -- Table structure for table `ratings`
 --
--- Creation: Dec 02, 2021 at 11:54 PM
---
 
 CREATE TABLE `ratings` (
   `id` int(11) NOT NULL,
@@ -158,8 +139,6 @@ CREATE TABLE `ratings` (
 --
 -- Table structure for table `schedule`
 --
--- Creation: Dec 09, 2021 at 11:13 PM
---
 
 CREATE TABLE `schedule` (
   `id` int(11) NOT NULL,
@@ -172,9 +151,6 @@ CREATE TABLE `schedule` (
 
 --
 -- Table structure for table `settings`
---
--- Creation: Dec 21, 2021 at 10:29 AM
--- Last update: Dec 21, 2021 at 10:30 AM
 --
 
 CREATE TABLE `settings` (
@@ -202,8 +178,6 @@ INSERT INTO `settings` (`id`, `registration`, `slogan`, `theme`, `name`, `url`, 
 --
 -- Table structure for table `tag_cloud`
 --
--- Creation: Nov 29, 2021 at 07:23 PM
---
 
 CREATE TABLE `tag_cloud` (
   `id` int(11) NOT NULL,
@@ -214,8 +188,6 @@ CREATE TABLE `tag_cloud` (
 
 --
 -- Table structure for table `tag_relation`
---
--- Creation: Nov 29, 2021 at 07:23 PM
 --
 
 CREATE TABLE `tag_relation` (
@@ -228,9 +200,6 @@ CREATE TABLE `tag_relation` (
 
 --
 -- Table structure for table `users`
---
--- Creation: Nov 18, 2021 at 07:31 PM
--- Last update: Dec 21, 2021 at 09:43 AM
 --
 
 CREATE TABLE `users` (

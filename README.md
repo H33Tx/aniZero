@@ -1,5 +1,3 @@
-## aniZero has several major security issues. Do not use it in any way yet!
-
 Notice: aniZero is halfway done, don't use it yet >_> please wait some more...
 
 ![aniZero Banner](https://user-images.githubusercontent.com/95925333/147201013-8c9186ec-56cb-4b1b-aad6-75b5c5bd0c42.png)
