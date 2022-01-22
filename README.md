@@ -1,3 +1,5 @@
+# aniZero has reached end of support and is not receiving further updates! We have decided to completely remake it under the name "Mononoke" with more features and better security (still in work). [You can view it here!](https://github.com/xHENAI/Mononoke)
+
 ## aniZero has several major security issues. Do not use it in any way yet!
 
 Notice: aniZero is halfway done, don't use it yet >_> please wait some more...
